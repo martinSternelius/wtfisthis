@@ -1,6 +1,15 @@
 <?php
-
 /**
 * Common default configurations goes into this file which is then locally
 * copied and modified as config.php
 */
+
+
+/**
+ * Constants for database config
+ */
+define('DBHOST','localhost');
+define('DBUSER','wtfdbuser');
+define('DBPASS','wtfdbpass');
+define('DB','wtfisthis');
+
