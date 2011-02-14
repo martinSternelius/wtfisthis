@@ -1,0 +1,6 @@
+<?php
+
+/**
+* Common default configurations goes into this file which is then locally
+* copied and modified as config.php
+*/
