@@ -3,6 +3,7 @@
 .classpath
 .settings
 .project
+.buildpath
 *~
 Thumbs.db
 Desktop.ini
