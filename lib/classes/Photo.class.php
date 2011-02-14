@@ -1,7 +1,7 @@
 <?php
-class Photo {
+class Photo extends WTF {
 	
-	private $photoId;
+	protected $photoId;
 
 	function __construct($photoId) {
 		$this->photoId = $photoId;

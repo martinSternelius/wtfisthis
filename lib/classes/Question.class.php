@@ -1,11 +1,13 @@
 <?php
-class Question {
+class Question extends WTF {
 	
-	private $title;
-	private $description;
-	private $photo;
+	protected $id;
+	protected $title;
+	protected $description;
+	protected $photo;
 
-	function __construct($title, $description = "", $photoId = "") {
+	function __construct($id, $title, $description = "", $photoId = "") {
+		$this->id = $id;
 		$this->title = $title;
 		$this->description = $description;
 		$this->photo = new Photo($photoId);
