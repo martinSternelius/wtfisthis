@@ -16,3 +16,8 @@ function __autoload($class_name) {
        include 'lib/classes/' . $class_name . '.class.php';
 }
 
+/**
+ * The flickr token
+ */
+define('CFG_FLICKR_TOKEN', '72157626047361260-b1b8d44f9efe7d65');
+
