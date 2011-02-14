@@ -11,7 +11,7 @@ require_once '../lib/base.php';
 // First check if the call is for a resource (in the database)
 if (isset($_GET['resource'])) {
 	
-	# GET /api/questions/
+	# GET /api/index.php?resource=questions
 	if ($_GET['resource'] == "questions") {
 		include 'questions/getQuestions.php';
 	}
