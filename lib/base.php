@@ -1,8 +1,10 @@
 <?php
 /**
- * include local configurations
- */
-require_once 'config.php';
+ * include local configurations*/
+ if ( file_exists('config.php')){
+	require_once 'config.php';
+ }
+ 
 
 /**
  * Add lib/ to include-path so we get slightly cleaner includes
