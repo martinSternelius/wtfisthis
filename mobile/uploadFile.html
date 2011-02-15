@@ -3,9 +3,17 @@
 	<head>
 		<title>Upload your file</title>
 	</head>
+	
+	<script type="text/javascript" src = "../js/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src = "../js/jquery.validate.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#uploadFile").validate();
+		})
+	</script>
 
 	<body>
-		<form method= "post" action = "../api/index.php?resource=questions">
+		<form id = "uploadFile" method= "post" action = "../api/index.php?resource=questions">
 			<fieldset>
 				<legend>Optional legend</legend>
 				<ul>
@@ -21,7 +29,7 @@
 					
 					<li>
 						<label for='nameInput'>Ditt namn</label>
-						<input id='nameInput' name='nameInput' type=text placeholder="Skriv ditt namn">
+						<input id='nameInput' name='nameInput' type=text placeholder="Skriv ditt namn" required>
 					</li>
 					
 					<li>
