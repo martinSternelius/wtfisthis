@@ -95,7 +95,7 @@ form#createQuestion input {
 }
 form#createQuestion textarea {
 	width: 100%;	
-	height: 400px;
+	height: 240px;
 	overflow: auto;
 }					
 form#createQuestion div.submit {
@@ -165,3 +165,16 @@ ul#tabnav li a {
 }
  
 /* end css tabs */
+
+/* jquery validator errors */
+
+form#createQuestion input.error, form#createQuestion textarea.error {
+	border: 2px solid red;
+}
+
+form#createQuestion label.error {
+	padding-top: 5px;
+	color: red;
+	font-size: 14px;
+	display: block;
+}

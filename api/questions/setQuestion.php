@@ -2,8 +2,7 @@
 
 // checks to see that all the POSTs are sent
 if((strlen($_POST['headerInput'])!= 0 )
-	/*&& isset($_POST['imageUpload'])*/ && 
-	(strlen($_POST['nameInput'])!= 0) && 
+	/*&& isset($_POST['imageUpload'])*/ &&  
 	(strlen($_POST['textInput'])!= 0 )) {
 		
 	$title = $_POST['headerInput'];

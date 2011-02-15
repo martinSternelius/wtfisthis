@@ -18,7 +18,7 @@
 						maxlength: 50
 					},
 					nameInput: {
-						required: true,
+						required: false,
 						minlength: 2,
 						maxlength: 50
 					},
@@ -35,7 +35,6 @@
 						maxlength: jQuery.format("Högst {0} tecken!")
 					},
 					nameInput: {
-						required: "Du har glömt att fylla i",
 						minlength: jQuery.format("Minst {0} tecken!"),
 						maxlength: jQuery.format("Högst {0} tecken!")
 					},
@@ -71,7 +70,7 @@
 					<ul>
 						<li>
 							<label for="headerInput">Rubrik</label>
-							<input type="text" name="headerInput" id="headerInput" required autofocus />
+							<input type="text" name="headerInput" id="headerInput" placeholder="Din rubrik" required autofocus />
 						</li>
 						<li>
 							<label for="imageUpload">Bild</label>
@@ -79,15 +78,15 @@
 						</li>
 						<li>
 							<label for="nameInput">Namn<span class="not_needed">(frivilligt)</span></label>
-							<input type="text" name="nameInput" id="nameInput" required />
+							<input type="text" name="nameInput" id="nameInput" placeholder="Ditt namn" />
 						</li>
 					</ul>	
 				</fieldset>
 				<fieldset class="textarea">																			
 					<ul>								
 						<li>
-							<label for="textInput">Text <span>- 340 tecken kvar</span><span class="not_needed">(frivilligt)</span></label>
-							<textarea name="textInput" id="textInput" required></textarea>
+							<label for="textInput">Text <span>- 340 tecken kvar</span></label>
+							<textarea name="textInput" id="textInput" placeholder="Din fråga" required></textarea>
 						</li>
 					</ul>
 				</fieldset>					
