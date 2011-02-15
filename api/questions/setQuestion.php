@@ -1,10 +1,10 @@
 <?php
 
 // checks to see that all the POSTs are sent
-if(isset($_POST['headerInput']) && isset($_POST['imageUpload']) && isset($_POST['nameInput'])) && isset($_POST['textInput']) {
+if(isset($_POST['headerInput']) /*&& isset($_POST['imageUpload'])*/ && isset($_POST['nameInput']) && isset($_POST['textInput'])) {
 	$title = $_POST['headerInput'];
 	$description = $_POST['textInput'];
-	$photo = $_POST['imageUpload'];
+	//$photo = $_POST['imageUpload'];
 	$name = $_POST['nameInput'];
 	
 	// save photo to flickr

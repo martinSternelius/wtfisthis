@@ -12,5 +12,10 @@ class Question extends WTF {
 		$this->description = $description;
 		$this->photo = new Photo($photoId);
 	}
-	
+	/** 
+	 * Get the question's id
+	 */
+	public function getId() {
+		return $this->id;
+	}
 }
