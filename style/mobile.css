@@ -74,7 +74,9 @@ form#createQuestion {
 form#createQuestion fieldset {
 	padding: 0;
 	border: none;	
+
 }
+
 form#createQuestion ul {list-style: none;padding: 0;margin: 0;}
 form#createQeustion li {display: block;padding: 5px 0;}
 form#createQuestion legend {display: none;}	

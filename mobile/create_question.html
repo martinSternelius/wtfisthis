@@ -10,7 +10,42 @@
 	<script type="text/javascript" src="../js/jquery.validate.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		$(document).ready(function() {
-			$("#createQuestion").validate();
+			$("#createQuestion").validate({
+				rules: {
+					headerInput: {
+						required: true,
+						minlength: 2,
+						maxlength: 50
+					},
+					nameInput: {
+						required: true,
+						minlength: 2,
+						maxlength: 50
+					},
+					textInput: {
+						required: true,
+						minlength: 2,
+						maxlength: 340
+					}
+				},
+				messages: {
+					headerInput: {
+						required: "Du har glömt att fylla i",
+						minlength: jQuery.format("Minst {0} tecken!"),
+						maxlength: jQuery.format("Högst {0} tecken!")
+					},
+					nameInput: {
+						required: "Du har glömt att fylla i",
+						minlength: jQuery.format("Minst {0} tecken!"),
+						maxlength: jQuery.format("Högst {0} tecken!")
+					},
+					textInput: {
+						required: "Du har glömt att fylla i",
+						minlength: jQuery.format("Minst {0} tecken!"),
+						maxlength: jQuery.format("Högst {0} tecken!")
+					}
+			   }
+			});
 		});
 	</script>
 </head>
