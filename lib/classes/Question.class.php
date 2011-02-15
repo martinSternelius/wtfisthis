@@ -10,7 +10,9 @@ class Question extends WTF {
 		$this->id = $id;
 		$this->title = $title;
 		$this->description = $description;
-		$this->photo = new Photo($photoId);
+		if (is_numeric($photoId)){			
+			$this->photo = new Photo($photoId);
+		}
 	}
 	/** 
 	 * Get the question's id

@@ -14,11 +14,13 @@ if(isset($_POST['headerInput']) && isset($_POST['nameInput']) && isset($_POST['t
 	$photo_id = $phpFlickr->sync_upload($photo, $title, $description);
 	*/
 	
-	$question = new Question($id = null, $title, $description, $photo_id = null);
+	$question = new Question($id = null, $title, $description, $photo_id = 1);
 	
 	if($question->save()) {
-		echo '{"id":"' . $question->id . '"}';
+		echo '{"id":"' . $question->getId() . '"}';
 	} else {
-		echo "{}";
+		echo "{}fail!";
 	}
+	
+	
 }

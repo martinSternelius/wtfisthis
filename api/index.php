@@ -12,11 +12,11 @@ require_once '../lib/base.php';
 if (isset($_GET['resource'])) {
 	
 	# GET /api/index.php?resource=questions
-	if ($_GET['resource'] == "questions") {
-			if (isset($_POST['headerInput'])){
-				include_once 'questions/setQuestion.php';
-			}else { 
-				include 'questions/getQuestions.php';
-			}
+	if ($_GET['resource'] == "questions"){
+		if ($_SERVER['REQUEST_METHOD'] == "POST"){
+			include 'questions/setQuestion.php';
+		}else if ($_SERVER['REQUEST_METHOD'] == "GET"){ 
+			include 'questions/getQuestions.php';
+		}
 	}
 }
