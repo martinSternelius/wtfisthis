@@ -17,8 +17,11 @@ if(isset($_POST['headerInput']) /*&& isset($_POST['imageUpload'])*/ && isset($_P
 	$question = new Question($id = null, $title, $description, $photo_id = null);
 	
 	if($question->save()) {
-		echo '{"id":"' . $question->id . '"}';
+		echo '{"id":"' . $question->getId() . '"}';
+		echo "question saved!";
 	} else {
-		echo "{}";
+		echo "{}fail";
 	}
+	
+	
 }
