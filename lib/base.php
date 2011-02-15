@@ -15,11 +15,14 @@ require_once 'config.php';
  * Set autoloader for classes
  */
 function __autoload($class_name) {
-       include 'classes/' . $class_name . '.class.php';
+	if(($class_name != "phpFlickr") && ($class_name != "phpFlickr_pager")) {
+		include 'classes/' . $class_name . '.class.php';
+	}  
 }
 
 /**
  * Flickr settings
  */
 define('FLICKR_API_KEY','18c61b543dcdfe6f939d181a8d52f333');
+define('FLICKR_SECRET', 'bc6a58410e396f5a');
 define('CFG_FLICKR_TOKEN', '72157626047361260-b1b8d44f9efe7d65');

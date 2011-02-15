@@ -1,24 +1,26 @@
 <?php
 
-// checks to see that all the POSTs are sent
+// checks to see that all the POSTs
+// file is not checked ATM
 if((strlen($_POST['headerInput'])!= 0 )
-	/*&& isset($_POST['imageUpload'])*/ &&  
-	(strlen($_POST['textInput'])!= 0 )) {
+	&& (strlen($_POST['textInput'])!= 0 )) {
 		
 	$title = $_POST['headerInput'];
 	$description = $_POST['textInput'];
-	//$photo = $_POST['imageUpload'];
 	$name = $_POST['nameInput'];
-
+	$photo = $_FILES["imageUpload"]["tmp_name"];
 	
 	// save photo to flickr
-	/*
-	$phpFlickr = new phpFlickr(FLICKR_API_KEY);
-	$phpFlickr->setToken(CFG_FLICKR_TOKEN);
-	$photo_id = $phpFlickr->sync_upload($photo, $title, $description);
-	*/
+	require_once '../lib/phpFlickr-3.1/phpFlickr.php';
 	
-	$question = new Question($id = null, $title, $description, $photo_id = 1);
+	// authenticate to Flickr
+	$phpFlickr = new phpFlickr(FLICKR_API_KEY, FLICKR_SECRET);
+	$phpFlickr->setToken(CFG_FLICKR_TOKEN);
+	
+	// upload the file, return the id for the flickr-hosted photo
+	$flickr_photo_id = $phpFlickr->sync_upload($photo, $title, $description);
+	
+	$question = new Question($id = null, $title, $description, $flickr_photo_id);
 	
 	if($question->save()) {
 		echo '{"id":"' . $question->getId() . '"}';
