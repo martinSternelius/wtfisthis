@@ -8,11 +8,13 @@ if(isset($_POST['headerInput']) && isset($_POST['imageUpload']) && isset($_POST[
 	$name = $_POST['nameInput'];
 	
 	// save photo to flickr
+	/*
 	$phpFlickr = new phpFlickr(FLICKR_API_KEY);
 	$phpFlickr->setToken(CFG_FLICKR_TOKEN);
-	$photo_id = $phpFlickr->sync_upload($photo);
+	$photo_id = $phpFlickr->sync_upload($photo, $title, $description);
+	*/
 	
-	$question = new Question($id = null, $title, $description, $photo_id);
+	$question = new Question($id = null, $title, $description, $photo_id = null);
 	
 	if($question->save()) {
 		echo '{"id":"' . $question->id . '"}';
