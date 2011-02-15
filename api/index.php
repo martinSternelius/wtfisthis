@@ -14,7 +14,6 @@ if (isset($_GET['resource'])) {
 	# GET /api/index.php?resource=questions
 	if ($_GET['resource'] == "questions"){
 		if ($_SERVER['REQUEST_METHOD'] == "POST"){
-			echo "sweet!";
 			include 'questions/setQuestion.php';
 		}else if ($_SERVER['REQUEST_METHOD'] == "GET"){ 
 			include 'questions/getQuestions.php';
