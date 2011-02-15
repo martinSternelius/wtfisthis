@@ -112,5 +112,19 @@ class Db {
       $row = $res->fetch_assoc();
       return $row['rows'];
    }
+   
+   /**
+    * Get a prepared statement for the given sql
+    *
+    * @param string $sql
+    * @return statement
+    */
+   public static function prepare($sql){
+      if(!self::$connection){
+        self::initDb();
+      }
+
+      return self::$connection->prepare($sql);
+   }
 
 }
