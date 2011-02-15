@@ -1,0 +1,165 @@
+/* begin common css */
+
+article, aside, figure, footer, header, hgroup, menu, nav, section { display: block; }
+/* http://meyerweb.com/eric/tools/css/reset/ v1.0 | 20080212 */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+/* remember to define focus styles! */
+:focus { outline: 0; }
+/* remember to highlight inserts somehow! */
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+/* tables still need 'cellspacing="0"' in the markup */
+table { border-collapse: collapse; border-spacing: 0; }
+
+body {
+	font: 1.3em arial;
+	background: black;
+}
+
+#wrapper {
+	width: 600px;
+	margin: 0 auto;
+	background-color: #DCE8F2;
+}
+
+header {
+	background: #7a9fbf;
+}
+
+header h1 {
+	padding: 10px 0 15px;
+	font-size: 40px;
+	color: #fff;
+}
+
+nav {
+	overflow: hidden;
+}
+
+#content, #about, footer {
+	padding: 40px;
+}
+
+input, textarea {
+	font-size: 1em;
+}
+
+h1, #footer {
+	text-align: center;
+}
+
+#main, #right {
+	background-color: #fff;
+	outline: 1px #A8BF54 solid;	
+}
+
+.inner {
+	padding: 10px;
+}
+
+/* end common css */
+
+/* begin question-form */
+
+form#createQuestion {
+	margin: 0 0 1em 0;
+	padding-top: 10px;
+}
+form#createQuestion fieldset {
+	padding: 0;
+	border: none;	
+}
+form#createQuestion ul {list-style: none;padding: 0;margin: 0;}
+form#createQeustion li {display: block;padding: 5px 0;}
+form#createQuestion legend {display: none;}	
+form#createQuestion div {margin:5px 0;}
+form#createQuestion h2 {margin-left: 10px;}
+form#createQuestion label {display: block;padding-top: 11px;}	
+form#createQuestion label span {color: #666;font-style: italic;}
+form#createQuestion label span.not_needed {float: right;color: #666;font-style: italic;}
+form#createQuestion input, form#createQuestion textarea {		
+	border: 1px solid #ddd;
+	background: #fff url(../images/form_input.gif) repeat-x;
+}
+form#createQuestion input {
+	width: 60%;
+	height: 32px;	
+}
+form#createQuestion textarea {
+	width: 100%;	
+	height: 400px;
+	overflow: auto;
+}					
+form#createQuestion div.submit {
+	clear: both;
+	text-align: right;
+	margin-top: 30px;
+}	
+form#createQuestion button {
+	width: 100%;
+	height: 40px;
+	line-height: 37px;		
+	border-width: 1px;
+	background: #A8BF54;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	text-align: center;
+}	
+form#createQuestion button:hover { color: #000; }
+form#createQuestion input:active, form#createQuestion input:focus {
+	border-color: #f00;
+}
+
+/* end question-form */
+
+/* begin css tabs */
+ 
+ul#tabnav {
+	text-align: left;
+	margin: 0 0 1em 0;
+	font: bold 11px verdana, arial, sans-serif;
+	list-style-type: none;
+}
+ 
+ul#tabnav li { 
+	display: inline;
+}
+ 
+ul#tabnav li.active { 
+	background-color: #fff;
+}
+ 
+ul#tabnav li.active a { 
+	background-color: #fff;
+	color: #000; 
+	top: 3px;
+	padding-top: 6px;
+}
+
+ul#tabnav li a {
+	background-color: #A8BF54; 
+	color: #fff; 
+	border: 0;
+	text-decoration: none;
+	font-size: 1.4em;
+	display: block;
+	width: 132px;
+	padding: 7px;
+	margin: 3px 0 3px 3px;
+	float: left;
+	white-space: nowrap;
+}
+
+#about {
+	background: #7a9fbf;
+}
+ 
+/* end css tabs */

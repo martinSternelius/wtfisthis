@@ -1,82 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>WTF is this</title>
-	<link rel="stylesheet" href="../style/960gs.css" type="text/css" />
-	<link rel="stylesheet" href="../style/style.css" type="text/css" />
+	<link rel="stylesheet" href="../style/mobile.css" type="text/css" />
+	<meta name="viewport" content="user-scalable=no, width=device_width" />
+	
+	<script type="text/javascript" src="../js/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.validate.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function() {
+			$("#createQuestion").validate();
+		});
+	</script>
 </head>
 <body>
-	
 	<div id="wrapper">
-	
-		<div id="header" class="container_12">
-			<div class="grid_9">
-				<h1>WTF is this</h1>
-			</div>
-		</div>
-		
-		<div id="content" class="container_12">
-			
-			<div class="grid_9" id="main">
+		<header>
+			<h1>WTF is this</h1>
+			<nav>
 				<ul id="tabnav"> 
 					<li><a href="#">Senaste</a></li> 
 					<li><a href="#">Populäraste</a></li> 
 					<li><a href="#">I din närhet</a></li> 
 					<li class="active"><a href="#">Skapa en fråga</a></li> 
-				</ul> 				
-				<div class="inner">
-					<form id="createQuestion" action="../api/index.php?resource=questions" method="post">	
-						<h2>Skapa en fråga</h2>						
-							<fieldset class="grid_3"><legend>Skapa en fråga</legend>
-								<ul>
-									<li class="first">
-										<label for="headerInput">Rubrik</label>
-										<input type="text" name="headerInput" id="headerInput" />
-									</li>
-									<li>
-										<label for="imageUpload">Bild</label>
-										<input type="file" name="imageUpload" id="imageUpload" />
-									</li>
-									<li>
-										<label for="nameInput">Namn<span class="not_needed">(frivilligt)</span></label>
-										<input type="text" name="nameInput" id="nameInput" />
-									</li>
-								</ul>	
-							</fieldset>
-							<fieldset class="textarea grid_5">																			
-								<ul>								
-									<li>
-										<label for="textInput">Text <span>- 340 tecken kvar</span><span class="not_needed">(frivilligt)</span></label>
-										<textarea name="textInput" id="textInput" cols="30" rows="10"></textarea>
-									</li>
-								</ul>
-							</fieldset>					
+				</ul> 	
+			</nav>
+		</header>
+	
+		<div id="content">
+					
+			<form id="createQuestion" action="../api/index.php?resource=questions" method="post">	
+				<h2>Skapa en fråga</h2>						
+				<fieldset><legend>Skapa en fråga</legend>
+					<ul>
+						<li>
+							<label for="headerInput">Rubrik</label>
+							<input type="text" name="headerInput" id="headerInput" required autofocus />
+						</li>
+						<li>
+							<label for="imageUpload">Bild</label>
+							<input type="file" name="imageUpload" id="imageUpload" />
+						</li>
+						<li>
+							<label for="nameInput">Namn<span class="not_needed">(frivilligt)</span></label>
+							<input type="text" name="nameInput" id="nameInput" required />
+						</li>
+					</ul>	
+				</fieldset>
+				<fieldset class="textarea">																			
+					<ul>								
+						<li>
+							<label for="textInput">Text <span>- 340 tecken kvar</span><span class="not_needed">(frivilligt)</span></label>
+							<textarea name="textInput" id="textInput" required></textarea>
+						</li>
+					</ul>
+				</fieldset>					
 
-							<div class="submit grid_9"><button type="submit">Spara</button></div>		
+				<div class="submit">
+					<button type="submit">Spara</button>
+				</div>		
 
-						</form>	
-				</div>			
-			</div>
-			
-			<div class="grid_3" id="right">
-				<div class="inner">
-					<h3>Om tjänsten</h3>
-					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-				</div>			
-			</div>
-		
+			</form>	
+				
 		</div>
 		
-		
+		<div id="about">
+				<h3>Om tjänsten</h3>
+				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>			
+		</div>
+	
+	
 		<div id="footer" class="container_12">
 			<div class="grid_12">
 				<p>copyright &copy; <a href="mailto:wtf@isthis.net">WTF is this</a> 2011</p>
 			</div>
 		</div>
-	
 	</div>
-
 </body>
 </html>
