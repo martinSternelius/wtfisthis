@@ -16,7 +16,7 @@ class Photo extends WTF {
 	 * Get the question's id
 	 */
 	public function getId() {
-		return $this->id;
+		return $this->photo_id;
 	}
 	
 	// setPhotoUrls asks Flickr one time for all the avaible sizes and saves them to the object
