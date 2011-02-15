@@ -17,7 +17,7 @@ function __autoload($class_name) {
 }
 
 /**
- * The flickr token
+ * Flickr settings
  */
+define('FLICKR_API_KEY','18c61b543dcdfe6f939d181a8d52f333');
 define('CFG_FLICKR_TOKEN', '72157626047361260-b1b8d44f9efe7d65');
-
