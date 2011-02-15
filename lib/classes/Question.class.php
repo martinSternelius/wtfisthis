@@ -22,19 +22,18 @@ class Question extends WTF {
 	/**
 	* Save The newly created Question to the DB. Needs to use the DB class in a more consistent way.
 	*/
-	public function save($con) {
+	public function save() {
 		$result = false;
 		$sql = "INSERT INTO `wtfisthis`.`questions` 
 			(`id`, `title`, `description`, `photo_id`) 
 			VALUES (NULL, ?, ?, ?)";
 		
-		if ($statement = $con->prepare($sql)) { 
+		if ($statement = Db::prepare($sql)) { 
 			$statement->bind_param("ssi", $this->title, $this->description, $this->photo->getId());
 			$result = $statement->execute();
 			$statement->close();
 		}
 		$this->id = DB::insert_id();
-		$con->close();
 		return $result;
 	}
 }
