@@ -8,6 +8,6 @@
 		public function test_this() {
 			$this->assertTrue(true);
 			$this->assertEqual(1+1, 2);
-		}		
+		}	
 	}
 ?>
