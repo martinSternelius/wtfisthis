@@ -5,7 +5,6 @@
 	require_once '../lib/classes/Question.class.php';
 
 	class test_phpflickr extends UnitTestCase {
-		/*
 		public function test_save() {
 			$question = new Question($id = null, 'Test Question', 'This is a test question', 999);
 			$question->save();
@@ -14,7 +13,6 @@
 			$this->assertTrue(is_numeric($id) && is_numeric($question->getId()));
 			$this->assertFalse($id == 0 || $question->getId() == 0);
 		}
-		*/
 	}
 	
 ?>

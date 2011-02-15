@@ -83,7 +83,7 @@ form#createQuestion legend {display: none;}
 form#createQuestion div {margin:5px 0;}
 form#createQuestion h2 {margin-left: 10px;}
 form#createQuestion label {display: block;padding-top: 11px;}	
-form#createQuestion label span {color: #666;font-style: italic;}
+form#createQuestion label > span {color: #666;font-style: italic;}
 form#createQuestion label span.not_needed {float: right;color: #666;font-style: italic;}
 form#createQuestion input, form#createQuestion textarea {		
 	border: 1px solid #ddd;

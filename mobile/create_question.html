@@ -8,29 +8,33 @@
 	
 	<script type="text/javascript" src="../js/jquery-1.5.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.validate.js"></script>
+	<script type="text/javascript" src="../js/NobleCount/js/jquery.NobleCount.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		$(document).ready(function() {
+			var header_max = 50;
+			var name_max = 50;
+			var text_max = 340;
 			$("#createQuestion").validate({
 				rules: {
 					headerInput: {
 						required: true,
 						minlength: 2,
-						maxlength: 50
+						maxlength: header_max
 					},
 					nameInput: {
 						required: false,
 						minlength: 2,
-						maxlength: 50
+						maxlength: name_max
 					},
 					textInput: {
 						required: true,
 						minlength: 2,
-						maxlength: 340
+						maxlength: text_max
 					}
 				},
 				messages: {
 					headerInput: {
-						required: "Du har glömt att fylla i",
+						required: "Du har glömt att fylla i rubrik",
 						minlength: jQuery.format("Minst {0} tecken!"),
 						maxlength: jQuery.format("Högst {0} tecken!")
 					},
@@ -45,6 +49,9 @@
 					}
 			   }
 			});
+			
+			$("#headerInput").NobleCount("#headerInputCount", {max_chars:header_max});
+			$("#textInput").NobleCount("#textInputCount", {max_chars:text_max});
 		});
 	</script>
 </head>
@@ -69,8 +76,9 @@
 				<fieldset><legend>Skapa en fråga</legend>
 					<ul>
 						<li>
-							<label for="headerInput">Rubrik</label>
+							<label for="headerInput">Rubrik - <span><span id="headerInputCount"></span> tecken kvar</span></label>
 							<input type="text" name="headerInput" id="headerInput" placeholder="Din rubrik" required autofocus />
+							
 						</li>
 						<li>
 							<label for="imageUpload">Bild</label>
@@ -85,7 +93,7 @@
 				<fieldset class="textarea">																			
 					<ul>								
 						<li>
-							<label for="textInput">Text <span>- 340 tecken kvar</span></label>
+							<label for="textInput">Text - <span><span id="textInputCount"></span> tecken kvar</span></label>
 							<textarea name="textInput" id="textInput" placeholder="Din fråga" required></textarea>
 						</li>
 					</ul>
