@@ -24,11 +24,11 @@ if((strlen($_POST['headerInput'])!= 0 )
 	if($question->save()) {
 		echo '{"id":"' . $question->getId() . '"}';
 	} else {
-		echo "save funktionen funkar inte";
+		echo '{"error":"Det gick inte att spara frågan i databasen"}';
 	}
 	
 	
 }
 else {
-	echo "fyll i alla fält!";
+	echo '{"error":"Fyll i alla fält!"}';
 }
