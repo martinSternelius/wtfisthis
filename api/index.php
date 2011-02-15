@@ -13,6 +13,10 @@ if (isset($_GET['resource'])) {
 	
 	# GET /api/index.php?resource=questions
 	if ($_GET['resource'] == "questions") {
-		include 'questions/getQuestions.php';
+			if (isset($_POST['headerInput'])){
+				include_once 'questions/setQuestion.php';
+			}else { 
+				include 'questions/getQuestions.php';
+			}
 	}
 }
