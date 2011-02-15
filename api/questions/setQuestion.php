@@ -19,7 +19,7 @@ if(isset($_POST['headerInput']) && isset($_POST['nameInput']) && isset($_POST['t
 	if($question->save()) {
 		echo '{"id":"' . $question->getId() . '"}';
 	} else {
-		echo "{}fail!";
+		echo "{}";
 	}
 	
 	
