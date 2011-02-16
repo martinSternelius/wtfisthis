@@ -36,7 +36,17 @@ INSERT INTO `wtfisthis`.`questions` (
 `photo_id`
 )
 VALUES (
-NULL , 'Vad har vi här?', 'Vad kan det här vara?', '5428508731'
+NULL , 'Vem är du?', 'Vad händer nu?', '5448394116'
 ), (
-NULL , 'Jag vet inte vad?', 'Hur kan man veta det här?', '5431368117'
+NULL , 'Vad i allsin dagar pysslar de med?', 'Vad händer nu?!!', '5431368117'
+), (
+NULL , 'Vad kan det här vara då?', 'Vad gör rosorna?', '5450522098'
+), (
+NULL , 'Django?', 'Vad är django?', '5449919259'
+), (
+NULL , 'Vilka böcker?', 'Hur kan de bara stå sådär mitt på bordet?', '5450530094'
+), (
+NULL , 'Jag såg en man med grönt hår', 'Sjukt skumt! Hände precis!', '5450561566'
+), (
+NULL , 'Vem är det här?', 'Sten-Åke undrar vad det här är bra för. Jag vet ju själv vem jag är...', '5450004171'
 );
