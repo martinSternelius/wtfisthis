@@ -5,6 +5,7 @@ class Question extends WTF {
 	protected $title;
 	protected $description;
 	protected $photo;
+	private $answers = Array();
 
 	function __construct($id, $title, $description = null, $photo = null) {
 		$this->id = $id;
@@ -18,6 +19,7 @@ class Question extends WTF {
 	public function getId() {
 		return $this->id;
 	}
+	
 	
 	/**
 	* Save The newly created Question to the DB. Needs to use the DB class in a more consistent way.
