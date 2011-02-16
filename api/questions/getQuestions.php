@@ -4,7 +4,7 @@ $resultSet = Db::query('SELECT * FROM questions');
 
 // The JSON object is built as a string with the starting bracket before the loop
 // because of difficulties with encoding to json object
-$questions = "{";
+$questions = "[";
 
 // Create a Question object for every row in the database
 while ($row = $resultSet->fetch_assoc()){
@@ -18,6 +18,6 @@ while ($row = $resultSet->fetch_assoc()){
 $questions = rtrim($questions, ",");
 
 // ends the json object
-$questions .= "}";
+$questions .= "]";
 
 echo $questions;
