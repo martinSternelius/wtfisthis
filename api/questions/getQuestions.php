@@ -16,6 +16,9 @@ $questions = array();
 while ($row = $resultSet->fetch_assoc()){
 	$q = new Question($row['id'], $row['title'], $row['description'], new Photo($row['photo_id']));
 	$questions[] = $q->toArray();
+	/*echo "<pre>";
+	print_r($questions);
+	echo "<pre>";*/
 }
 
 // a bug in PHP prior to September 2010 auto escapes "/", this is a fix for urls to be properly formatted
