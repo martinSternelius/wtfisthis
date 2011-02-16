@@ -5,7 +5,7 @@ class Question extends WTF {
 	protected $title;
 	protected $description;
 	protected $photo;
-	private $answers = Array();
+	private $answers;
 
 	function __construct($id, $title, $description = "", $photoId = "") {
 		$this->id = $id;
@@ -14,6 +14,7 @@ class Question extends WTF {
 		if (is_numeric($photoId)){			
 			$this->photo = new Photo($photoId);
 		}
+		$this->answers = Answer::getAllAnswersOfQuestion($this->id);
 	}
 	/** 
 	 * Get the question's id
@@ -40,4 +41,5 @@ class Question extends WTF {
 		$this->id = DB::insert_id();
 		return $result;
 	}
+
 }

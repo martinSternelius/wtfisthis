@@ -8,15 +8,12 @@ class Answer extends WTF {
 	private $answer_text;
 	private $published_time;
 	
-	function __construct ($question_id, $name, $answer_text, $published_time, $answer_id){
-		if (!is_numeric($answer_id))	{	
+	function __construct ($answer_id = null, $question_id, $name, $answer_text, $published_time){	
 			$this->question_id = $question_id;
+			$this->answer_id = $answer_id;
 			$this->name = $name;
 			$this->answer_text = $answer_text;
 			$this->published_time = $published_time;
-		}else {
-			$this->loadAnswer($answer_id);
-		}
 	}
 	
 	public function save() {
@@ -34,7 +31,7 @@ class Answer extends WTF {
 		return $result;
 	}
 	
-	private function loadAnswer($answer_id) {
+	/*private function loadAnswer($answer_id) {
 		$answer = Db::query("	SELECT * FROM `answers`
 								WHERE `answers`.`answer_id` = '$answer_id';
 							");
@@ -46,6 +43,22 @@ class Answer extends WTF {
 			$this->published_time = $row['published_time'];
 
 		}
+			
+	}*/
+		
+	public static function getAllAnswersOfQuestion($question_id){
+		$answers_array = Db::query("	SELECT * FROM `wtfisthis`.`answers`
+										WHERE `answers`.`question_id` = $question_id;
+									");
+		$all_answers =Array();
+		while ($row = $answers_array->fetch_assoc()){
+			$all_answers[] = new Answer($row['answer_id'],
+										$row['question_id'], 
+										$row['name'],
+										$row['answer_text'], 
+										$row['published_time']);
+			}
+			return $all_answers;
 	}
 	
 	
