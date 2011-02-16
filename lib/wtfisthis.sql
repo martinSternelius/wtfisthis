@@ -81,4 +81,13 @@ VALUES
 (NULL, '7', 'Pelle Spam', 'Delicous Canned Spam!', '2011-02-09 14:38:36'), 
 (NULL, '7', 'Pelle Spam', 'Delicous Canned Spam!', '2011-02-09 14:38:37'), 
 (NULL, '7', 'Pelle Spam', 'Delicous Canned Spam!', '2011-02-09 14:38:38'),
-(NULL, '7', 'Sten-Åke', 'Sluta spamma min tråd!', '2011-02-10 18:25:48');
+(NULL, '7', 'Sten-Åke', 'Sluta spamma min tråd!', '2011-02-10 18:25:48'),
+(NULL, '6', NULL, 'Joker celebrates new year''s eve.', '2010-12-31 23:49:45'), 
+(NULL, '1', 'Joe Linker', 'jag tror du vill se http://www.thereistheoneandonlytruthoutthere.org/ishityounot/hereitis/1', '2011-02-02 15:13:08'), 
+(NULL, '1', NULL, 'we have some really good Supercalifragilisticexpialidocious Supercalifragilisticexpialidocious Supercalifragilisticexpialidocious Supercalifragilisticexpialidocious right there.', '2011-02-05 15:43:08'),
+(NULL, '4', NULL, 'Enligt hemsidan "Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design." Det är djangos logga.', '2011-01-19 15:19:52'), 
+(NULL, '4', NULL, 'kanske det? Något programspråkrelaterat iaf', '2011-02-10 15:19:43'), 
+(NULL, '4', NULL, 'Ser ut som en ponny enligt mig...', '2011-02-12 15:19:31'), 
+(NULL, '4', NULL, 'Knappast, det är en enhörning!', CURRENT_TIMESTAMP), 
+(NULL, '4', NULL, 'Jag tror det är Visual basic som har det som logotyp.', '2011-02-15 15:19:22'), 
+(NULL, '4', 'Vicki Pedia', 'Django är ett ramverk för utveckling av webbsidor. Django är skrivet i Python. Det utvecklades ursprungligen för nyhetssidor och släpptes under BSD-licensen 2005. Namnet kommer av gitarristen Django Reinhardt. Syftet med Django är att göra det enklare att utveckla avancerade databas-drivna webbplatser. Det ska vara lätt att återanvända komponenter och det ska gå snabbt att skriva kod. Django genererar automatiskt administrations-gränssnitt utifrån data-modellen som anges i Python-kod.', '2011-02-16 15:26:22');

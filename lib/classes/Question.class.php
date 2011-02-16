@@ -7,14 +7,17 @@ class Question extends WTF {
 	protected $photo;
 	private $answers;
 
-	function __construct($id, $title, $description = "", $photoId = "") {
+	function __construct($id, $title, $description = null, $photo = null) {
 		$this->id = $id;
 		$this->title = $title;
 		$this->description = $description;
+
 		if (is_numeric($photoId)){			
 			$this->photo = new Photo($photoId);
 		}
 		$this->answers = Answer::getAllAnswersOfQuestion($this->id);
+		$this->photo = $photo;
+
 	}
 	/** 
 	 * Get the question's id
