@@ -20,6 +20,12 @@ class Question extends WTF {
 	public function getId() {
 		return $this->id;
 	}
+	/** 
+	 * Get the question's title
+	 */
+	public function getTitle() {
+		return $this->title;
+	}
 	
 	/**
 	* Save The newly created Question to the DB. Needs to use the DB class in a more consistent way.
@@ -30,11 +36,12 @@ class Question extends WTF {
 			(`id`, `title`, `description`, `photo_id`) 
 			VALUES (NULL, ?, ?, ?)";
 		
-		if ($statement = Db::prepare($sql)) { 
+		if ($statement = Db::prepare($sql)) {
 			$statement->bind_param("ssi", $this->title, $this->description, $this->photo->getId());
 			$result = $statement->execute();
 			$statement->close();
 		}
+
 		$this->id = DB::insert_id();
 		return $result;
 	}
