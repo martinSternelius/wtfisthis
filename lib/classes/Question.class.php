@@ -31,7 +31,7 @@ class Question extends WTF {
 			VALUES (NULL, ?, ?, ?)";
 		
 		if ($statement = Db::prepare($sql)) { 
-			$statement->bind_param("ssi", $this->title, $this->description, $this->photo->getId());
+			$statement->bind_param("sss", $this->title, $this->description, $this->photo->getId());
 			$result = $statement->execute();
 			$statement->close();
 		}
