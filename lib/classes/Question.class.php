@@ -1,22 +1,20 @@
 <?php
 class Question extends WTF {
 	
-	protected $id;
+	private $id;
 	protected $title;
 	protected $description;
 	protected $photo;
 	private $answers;
 
-	function __construct($id, $title, $description = null, $photo = null) {
-		$this->id = $id;
-		$this->title = $title;
-		$this->description = $description;
-
-		if (is_numeric($photoId)){			
-			$this->photo = new Photo($photoId);
+	function __construct($id = null, $title = null, $description = null, $photo = null) {
+		if (!is_numeric($id)){
+			$this->title = $title;
+			$this->description = $description;
+			$this->photo = $photo;
+		}else {
+			$this->loadQuestion($id);
 		}
-		$this->answers = Answer::getAllAnswersOfQuestion($this->id);
-		$this->photo = $photo;
 
 	}
 	/** 
@@ -24,6 +22,10 @@ class Question extends WTF {
 	 */
 	public function getId() {
 		return $this->id;
+	}
+	
+	public function getAnswers() {
+		return $this->answers;
 	}
 	
 	
@@ -43,6 +45,19 @@ class Question extends WTF {
 		}
 		$this->id = DB::insert_id();
 		return $result;
+	}
+	
+	private function loadQuestion($id) {
+		$question = Db::query("	SELECT * FROM `questions`
+								WHERE `questions`.`id` = '$id';
+							");
+		while ($row = $question->fetch_assoc()){
+			$this->id = $row['id'];
+			$this->title = $row['title'];
+			$this->description = $row['description'];
+			$this->photo = new Photo($row['photo_id']);
+		}
+		$this->answers = Answer::getAllAnswersOfQuestion($this->id);
 	}
 
 }
