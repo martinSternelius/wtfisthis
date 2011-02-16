@@ -43,6 +43,7 @@ class Db {
 
    private static function initDb(){
       self::$connection = new mysqli(DBHOST,DBUSER,DBPASS,DB);
+      self::$connection->set_charset("utf8");
    }
 
    public static function error_msg(){
