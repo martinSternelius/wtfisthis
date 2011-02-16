@@ -15,8 +15,9 @@ if (isset($_GET['resource'])) {
 	if ($_GET['resource'] == "questions"){
 		if ($_SERVER['REQUEST_METHOD'] == "POST"){
 			include 'questions/setQuestion.php';
-		}else if ($_SERVER['REQUEST_METHOD'] == "GET"){ 
-			include 'questions/getQuestions.php';
+		} else if ($_SERVER['REQUEST_METHOD'] == "GET"){ 
+			include __DIR__.'/questions/getQuestions.php';
+			
 		}
 	}
 }

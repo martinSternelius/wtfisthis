@@ -1,6 +1,14 @@
 <?php
 
-$resultSet = Db::query('SELECT * FROM questions');
+// if id is set, then we want to reply a single question
+if(isset($_GET['id'])) {
+	$resultSet = Db::query("SELECT * FROM questions WHERE id = {$_GET['id']}");
+
+// else return all the answers in the database
+} else {
+	$resultSet = Db::query('SELECT * FROM questions');
+}
+
 
 $questions = array(); 
 
