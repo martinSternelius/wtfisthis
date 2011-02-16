@@ -2,11 +2,11 @@
 
 class Answer extends WTF {
 	
-	private $answer_id;
-	private $question_id;
-	private $name;
-	private $answer_text;
-	private $published_time;
+	protected  $answer_id;
+	protected  $question_id;
+	protected  $name;
+	protected $answer_text;
+	protected $published_time;
 	
 	function __construct ($answer_id = null, $question_id, $name, $answer_text, $published_time){	
 			$this->question_id = $question_id;

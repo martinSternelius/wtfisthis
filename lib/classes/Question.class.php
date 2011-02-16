@@ -5,7 +5,7 @@ class Question extends WTF {
 	protected $title;
 	protected $description;
 	protected $photo;
-	private $answers;
+	protected $answers;
 
 	function __construct($id = null, $title = null, $description = null, $photo = null) {
 		if (!is_numeric($id)){
