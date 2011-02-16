@@ -6,7 +6,7 @@
 
 	class test_phpflickr extends UnitTestCase {
 		public function test_save() {
-			$question = new Question($id = null, 'åäö', 'åäö', 999);
+			$question = new Question($id = null, 'Test Question', 'This is a test question', 999);
 			$question->save();
 			$id = Db::insert_id();
 			$this->assertEqual($id, $question->getId());
