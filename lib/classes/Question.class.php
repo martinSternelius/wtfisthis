@@ -55,16 +55,33 @@ class Question extends WTF {
 	}
 	
 	private function loadQuestion($id) {
-		$question = Db::query("	SELECT * FROM `questions`
-								WHERE `questions`.`id` = '$id';
-							");
-		while ($row = $question->fetch_assoc()){
-			$this->id = $row['id'];
-			$this->title = $row['title'];
-			$this->description = $row['description'];
-			$this->photo = new Photo($row['photo_id']);
-		}
-		$this->answers = Answer::getAllAnswersOfQuestion($this->id);
-	}
+		$question = Db::get_assoc("SELECT * FROM `questions`" .
+								" WHERE `questions`.`id` = '$id';");
+
+      if(!$question) return; // just do nothing if we don't actually
+                             // get anything from db
+      $question = $question[0];
+      $this->id = $question['id'];
+      $this->title = $question['title'];
+      $this->description = $question['description'];
+      $this->photo = new Photo($question['photo_id']);
+      if(!$question['thumbnail']){
+         $urls = $this->photo->getUrls();
+         $this->storePhotoUrls($urls);
+      } else {
+         $this->photo->setUrls($question['thumbnail'], $question['medium'], $question['original']);
+      }
+
+      $this->answers = Answer::getAllAnswersOfQuestion($this->id);
+   }
+
+   private function storePhotoUrls($urls){
+      $statement = Db::prepare("UPDATE `wtfisthis`.`questions`".
+         " SET `thumbnail` = ?, `medium` = ?, `original` = ? WHERE `id` = ?");
+      if(!$statement) die('No statement');
+      $statement->bind_param("ssss", $urls['thumbnail'],$urls['medium'],$urls['original'],$this->id);
+      $statement->execute();
+      $statement->close();
+   }
 
 }
