@@ -69,9 +69,14 @@ class Photo extends WTF {
 			}
 		}
 	}
-	
+   
+   public function setUrls($thumbnail,$medium,$original){
+      $this->urls['thumbnail'] = $thumbnail;
+      $this->urls['medium'] = $medium;
+      $this->urls['original'] = $original;
+   }   
+
 	public function toArray(){
-		$this->getUrls();
 		return parent::toArray();
 		
 	}
