@@ -6,7 +6,14 @@ class Question extends WTF {
 	protected $description;
 	protected $photo;
 	protected $answers;
-
+	/**
+	 * 
+	 * Enter description here ...
+	 * @param int $id -> Set this to get question from DB. Null by default.
+	 * @param string $title -> Null by default.
+	 * @param string $description -> Null by default.
+	 * @param Photo $photo -> Null by default.
+	 */
 	function __construct($id = null, $title = null, $description = null, $photo = null) {
 		if (!is_numeric($id)){
 			$this->title = $title;

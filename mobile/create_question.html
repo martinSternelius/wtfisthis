@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>WTF is this</title>
 	<link rel="stylesheet" href="../style/mobile.css" type="text/css" />
 	<meta name="viewport" content="user-scalable=no, width=device_width" />
@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="../js/jquery-1.5.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.validate.js"></script>
 	<script type="text/javascript" src="../js/jquery.NobleCount.js"></script>
-	<script type="text/javascript" charset="utf-8">
+	<script type="text/javascript" >
 		$(document).ready(function() {
 			var header_max = 50;
 			var name_max = 50;
@@ -73,8 +73,7 @@
 			</nav>
 		</header>
 	
-		<div id="content">
-					
+		<div id="content">				
 			<form id="createQuestion" action="../api/index.php?resource=questions" method="post" enctype="multipart/form-data">	
 				<h2>Skapa en fråga</h2>						
 				<fieldset>
@@ -82,8 +81,7 @@
 					<ul>
 						<li>
 							<label for="headerInput">Rubrik - <span><span id="headerInputCount"></span> tecken kvar</span></label>
-							<input type="text" name="headerInput" id="headerInput" placeholder="Din rubrik" required autofocus />
-							
+							<input type="text" name="headerInput" id="headerInput" placeholder="Din rubrik" required="required" autofocus="autofocus" />			
 						</li>
 						<li>
 							<label for="imageUpload">Bild</label>
@@ -99,7 +97,7 @@
 					<ul>								
 						<li>
 							<label for="textInput">Text - <span><span id="textInputCount"></span> tecken kvar</span></label>
-							<textarea name="textInput" id="textInput" placeholder="Din fråga" required></textarea>
+							<textarea name="textInput" id="textInput" placeholder="Din fråga" required="required"></textarea>
 						</li>
 					</ul>
 				</fieldset>					
@@ -109,20 +107,18 @@
 				</div>		
 
 			</form>	
-				
 		</div>
 		
-		<div id="about">
+		<section id="about">
 				<h3>Om tjänsten</h3>
 				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>			
-		</div>
+		</section>
 	
-	
-		<div id="footer" class="container_12">
+		<footer class="container_12">
 			<div class="grid_12">
 				<p>copyright &copy; <a href="mailto:wtf@isthis.net">WTF is this</a> 2011</p>
 			</div>
-		</div>
+		</footer>
 	</div>
 </body>
 </html>
