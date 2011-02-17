@@ -205,7 +205,24 @@ h2#answers_header {
 	margin-top:10px;
 }
 
-div.answer {
-	border: solid 1px;
-	margin: 5px, 0px, 5px, 0px;	
+li.answer {
+	list-style-type:none;
+	border: solid 1px #a8bf54;
+	margin: 5px 0px 0px 0px;
+	padding: 5px;
+	overflow:hidden;
+	font-size:14px;
+}
+
+li.answer p.answer_text, p.answer_name {
+	float:left;
+	width:80%;
+}
+
+li.answer div.voting {
+	float:right;
+}
+
+li.answer p.answer_name {
+	color:#7a9fbf;
 }
