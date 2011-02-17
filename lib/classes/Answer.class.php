@@ -2,9 +2,9 @@
 
 class Answer extends WTF {
 	
-	protected  $answer_id;
-	protected  $question_id;
-	protected  $name;
+	protected $answer_id;
+	protected $question_id;
+	protected $name;
 	protected $answer_text;
 	protected $published_time;
 	
