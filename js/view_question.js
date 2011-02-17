@@ -18,15 +18,23 @@ $(document).ready(function() {
 		$.each(question.answers, function() {
 			
 			// builds up the html for every answer
-			var answer ="<section class='answer'>";
+			var answer ="<li class='answer'>";
 			answer += 		"<p class='answer_text'>" + this.answer_text + "</p>";
-			answer +=			"<div>";
+			answer +=			"<div class='voting'>";
 			answer +=				"<p class='upvote'>+</p>";
 			answer +=				"<p class='rating'>0</p>";
 			answer +=				"<p class='downvote'>-</p>";
 			answer +=			"</div>";
-			answer +=			"<p class='answer_name'>Skriven av " + this.name + " den " + this.published_time + ".</p>";
-			answer +=		"</section>";
+			answer +=			"<p class='answer_name'>Skriven av ";
+		
+				if(this.name) {
+					answer += this.name
+				} else {
+					answer += "Anonym"
+				}
+				
+			answer += 		" den " + this.published_time + ".</p>";
+			answer +=		"</li>";
 			
 			$("#answers").append(answer);
 			
