@@ -4,6 +4,9 @@
  * It should answer to different GET parameters and include other files that carries out the workload
  * No functional code should be in here, in other words
  *
+ *
+ * Flickr user url:
+ * http://www.flickr.com/photos/59481302@N07/
  */
 require_once '../lib/base.php';
 
