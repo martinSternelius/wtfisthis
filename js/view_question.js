@@ -20,7 +20,7 @@ $(document).ready(function() {
 			// builds up the html for every answer
 			var answer ="<li class='answer'>";
 			answer += 		"<p class='answer_text'>" + this.answer_text + "</p>";
-			answer +=			"<div>";
+			answer +=			"<div class='voting'>";
 			answer +=				"<p class='upvote'>+</p>";
 			answer +=				"<p class='rating'>0</p>";
 			answer +=				"<p class='downvote'>-</p>";

@@ -178,3 +178,51 @@ form#createQuestion label.error {
 	font-size: 14px;
 	display: block;
 }
+
+/*	Start view question */ 
+div#map_section {
+	display:none;	
+}
+
+span#question_text {
+	font-size:14px;
+}
+
+span#question_text > p {
+	margin-top:5px;	
+}
+
+span#question_text > p#question_name_and_date {
+	color:#7a9fbf;
+}
+
+
+span#view_select {
+	font-size:14px;	
+}
+
+h2#answers_header {
+	margin-top:10px;
+}
+
+li.answer {
+	list-style-type:none;
+	border: solid 1px #a8bf54;
+	margin: 5px 0px 0px 0px;
+	padding: 5px;
+	overflow:hidden;
+	font-size:14px;
+}
+
+li.answer p.answer_text, p.answer_name {
+	float:left;
+	width:80%;
+}
+
+li.answer div.voting {
+	float:right;
+}
+
+li.answer p.answer_name {
+	color:#7a9fbf;
+}
