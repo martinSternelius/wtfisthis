@@ -21,7 +21,7 @@ if (isset($_GET['resource'])) {
 		}else if ($_SERVER['REQUEST_METHOD'] == "GET"){
 			
 			//If we request a single question by id, we don't want to get all of them
-			if (is_numeric($_GET['id'])) {
+			if (isset($_GET['id'])&&is_numeric($_GET['id'])) {
 				include 'questions/getQuestionById.php';
 			} else {
 				include 'questions/getQuestions.php';

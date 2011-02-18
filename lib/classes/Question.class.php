@@ -2,7 +2,9 @@
 class Question extends WTF {
 	
 	private $id;
-	protected $title;
+   protected $title;
+   protected $author;
+   protected $post_date;
 	protected $description;
 	protected $photo;
 	protected $answers;
@@ -11,14 +13,16 @@ class Question extends WTF {
 	 * Enter description here ...
 	 * @param int $id -> Set this to get question from DB. Null by default.
 	 * @param string $title -> Null by default.
+	 * @param string $author -> Null by default.
 	 * @param string $description -> Null by default.
 	 * @param Photo $photo -> Null by default.
 	 */
-	function __construct($id = null, $title = null, $description = null, $photo = null) {
+	function __construct($id = null, $title = null, $author = null, $description = null, $photo = null) {
 		if (!is_numeric($id)){
 			$this->title = $title;
 			$this->description = $description;
-			$this->photo = $photo;
+         $this->photo = $photo;
+         $this->author = $author;
 		}else {
 			$this->loadQuestion($id);
 		}
@@ -49,11 +53,11 @@ class Question extends WTF {
 	public function save() {
 		$result = false;
 		$sql = "INSERT INTO `wtfisthis`.`questions` 
-			(`id`, `title`, `description`, `photo_id`) 
-			VALUES (NULL, ?, ?, ?)";
+			(`id`, `title`, `description`, `photo_id`, `author`, `post_date`) 
+			VALUES (NULL, ?, ?, ?, ?, NOW())";
 		
 		if ($statement = Db::prepare($sql)) { 
-			$statement->bind_param("sss", $this->title, $this->description, $this->photo->getId());
+			$statement->bind_param("ssss", $this->title, $this->description, $this->photo->getId(),$this->author);
 			$result = $statement->execute();
 			$statement->close();
 		}
@@ -62,13 +66,15 @@ class Question extends WTF {
 	}
 	
 	private function loadQuestion($id) {
-		$question = Db::get_assoc("SELECT * FROM `questions`" .
+		$result = Db::get_assoc("SELECT * FROM `questions`" .
 								" WHERE `questions`.`id` = '$id';");
 
-      if(!$question) return; // just do nothing if we don't actually
-                             // get anything from db
-      $question = $question[0];
+      if(!$result) return; // just do nothing if we don't actually
+                           // get anything from db
+      $question = $result[0];
       $this->id = $question['id'];
+      $this->author = $question['author'];
+      $this->post_date = $question['post_date'];
       $this->title = $question['title'];
       $this->description = $question['description'];
       $this->photo = new Photo($question['photo_id']);

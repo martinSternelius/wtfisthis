@@ -47,6 +47,8 @@ DROP TABLE IF EXISTS `questions`;
 CREATE TABLE `questions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(160) COLLATE utf8_bin NOT NULL,
+  `author` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `post_date` datetime DEFAULT NULL,
   `description` text COLLATE utf8_bin,
   `photo_id` bigint(11) NOT NULL,
   `thumbnail` varchar(256) COLLATE utf8_bin DEFAULT NULL,
