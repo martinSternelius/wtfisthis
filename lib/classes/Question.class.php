@@ -4,6 +4,7 @@ class Question extends WTF {
 	private $id;
    protected $title;
    protected $author;
+   protected $post_date;
 	protected $description;
 	protected $photo;
 	protected $answers;
