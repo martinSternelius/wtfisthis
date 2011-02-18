@@ -7,10 +7,10 @@ if((strlen($_POST['headerInput'])!= 0 )
 	
 	$title = $_POST['headerInput'];
 	$description = $_POST['textInput'];
-	$name = $_POST['nameInput'];
+	$author = $_POST['nameInput'];
 	$photo = Photo::from_file($_FILES["imageUpload"]["tmp_name"], $title, $description);
 	
-	$question = new Question($id = null, $title, $description, $photo);
+	$question = new Question($id = null, $title, $author, $description, $photo);
 	
 	if($question->save()) {
 		echo '{"id":"' . $question->getId() . '"}';
