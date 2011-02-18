@@ -34,6 +34,13 @@ class Question extends WTF {
 	public function getAnswers() {
 		return $this->answers;
 	}
+	/**
+	 * 
+	 * Get the question's photo
+	 */
+	public function getPhoto() {
+		return $this->photo;
+	}
 	
 	
 	/**
@@ -65,7 +72,7 @@ class Question extends WTF {
       $this->title = $question['title'];
       $this->description = $question['description'];
       $this->photo = new Photo($question['photo_id']);
-      if(!$question['thumbnail']){
+      if(!$question['thumbnail'] || !$question['medium']){
          $urls = $this->photo->getUrls();
          $this->storePhotoUrls($urls);
       } else {
