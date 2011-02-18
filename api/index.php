@@ -7,6 +7,10 @@
  *
  * Flickr user url:
  * http://www.flickr.com/photos/59481302@N07/
+ *
+ * Login to Flickr: 
+ * username: wtfisthiscontact@yahoo.com
+ * password: ASDFqwerty123
  */
 require_once '../lib/base.php';
 
