@@ -45,6 +45,13 @@ class Question extends WTF {
 	public function getPhoto() {
 		return $this->photo;
 	}
+	/**
+	 * 
+	 * Get the question's author
+	 */
+	public function getAuthor() {
+		return $this->author;
+	}
 	
 	
 	/**

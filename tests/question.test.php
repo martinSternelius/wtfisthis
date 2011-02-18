@@ -4,7 +4,7 @@
 	require_once "../lib/simpletest/autorun.php";
 	require_once '../lib/classes/Question.class.php';
 
-	class test_phpflickr extends UnitTestCase {
+	class test_question extends UnitTestCase {
 		/*
 		public function test_save() {
 			$question = new Question($id = null, 'Test Question', 'This is a test question', Photo::from_file('../mobile/images/handwriting_small.jpg', 'test image', $description));
@@ -16,15 +16,16 @@
 		}
 		*/
 		
-		public function test_loadAnswers () {
+		public function test_load_question () {
 			$id = 7;
 			$question = new Question($id);
 			$this->assertEqual($id, $question->getId());
-			$this->assertNotEqual(0, count($question->getAnswers()));			
+			$this->assertNotEqual(0, count($question->getAnswers()));
+			$this->assertNotNull($question->getAuthor());	
 		}
 		
 		public function test_photo_urls () {
-			$question = new Question(8);
+			$question = new Question(7);
 			$photo_urls = $question->getPhoto()->getUrls();
 			$this->assertNotNull($photo_urls['medium']);
 		}

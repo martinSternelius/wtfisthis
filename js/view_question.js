@@ -12,9 +12,12 @@ $(document).ready(function() {
 	 	$("#question_title").html(question.title);
 		$("#question_image").attr("src", question.photo.urls.medium);
 		$("#question_description").html(question.description);
-	   if(question.author && question.post_date){
-         $('#question_author_and_date').text('Skriven av '+question.author+' den '+ question.post_date);
-         }   
+		if(question.post_date){
+			if (question.author == null) {
+				question.author = "Anonym";
+			}
+			$('#question_author_and_date').text('Skriven av '+question.author+' den '+ question.post_date);
+		}   
 		// gets the answers and foreach displays them below the question
 		
 		$.each(question.answers, function() {
