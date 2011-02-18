@@ -61,7 +61,7 @@ class Photo extends WTF {
 			if($photo_size['label'] == "Square") {
 				$this->urls['thumbnail'] = $photo_size['url'];
 			}
-			if($photo_size['label'] == "Medium") {
+			if($photo_size['label'] == "Medium" || $photo_size['label'] == "Small") {
 				$this->urls['medium'] = $photo_size['url'];
 			}
 			if($photo_size['label'] == "Original") {
