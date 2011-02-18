@@ -93,10 +93,7 @@
 							<label for="imageUpload">Bild</label>
 							<input type="file" name="imageUpload" id="imageUpload" />
 						</li>
-						<li>
-							<label for="nameInput">Namn<span class="not_needed">(frivilligt)</span></label>
-							<input type="text" name="nameInput" id="nameInput" placeholder="Ditt namn" />
-						</li>
+						
 					</ul>	
 				</fieldset>
 				<fieldset class="textarea">																			
@@ -105,11 +102,15 @@
 							<label for="textInput">Text - <span><span id="textInputCount"></span> tecken kvar</span></label>
 							<textarea name="textInput" id="textInput" placeholder="Din fråga" required="required"></textarea>
 						</li>
+						<li>
+							<label for="nameInput">Namn</label>
+							<input type="text" name="nameInput" id="nameInput" placeholder="Ditt namn är frivilligt" />
+						</li>
 					</ul>
 				</fieldset>					
 
 				<div class="submit">
-					<button type="submit" id="upload_button">Spara</button>
+					<button id="createQuestionButton" type="submit" id="upload_button">Spara</button>
 				</div>		
 
 			</form>	

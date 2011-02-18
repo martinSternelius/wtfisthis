@@ -48,19 +48,31 @@
 				<ol>
 				</ol>				
 			</div>
+			
+			<div id="reply_to_question">
+				<h2>Svara</h2>
+				<form action="../api/?resource=answers" method="post">
+					<label for="reply_text">Text</label>
+					<textarea id="reply_text" name="reply_text" rows="8" cols="40" required placeholder="Svara på frågan"></textarea>
+					
+					<label for="reply_author">Namn</label>
+					<input type="text" name="reply_author" id="reply_author" placeholder="Namnet är frivilligt" />
+					
+					<button type="submit">Svara</button>
+				</form>
+				
+			</div>
 				
 		</div>
 		
 		<div id="about">
-				<h3>Om tjänsten</h3>
-				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>			
+			<h3>Om tjänsten</h3>
+			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>			
 		</div>
 	
 	
-		<div id="footer" class="container_12">
-			<div class="grid_12">
-				<p>copyright &copy; <a href="mailto:wtf@isthis.net">WTF is this</a> 2011</p>
-			</div>
+		<div id="footer">
+			<p>copyright &copy; <a href="mailto:wtf@isthis.net">WTF is this</a> 2011</p>
 		</div>
 	</div>
 </body>
