@@ -23,31 +23,33 @@ $(document).ready(function() {
 			$('#question_author_and_date').text('Skriven av '+question.author+' den '+ question.post_date);
 		}   
 		// gets the answers and foreach displays them below the question
-		
-		$(question.answers).each(function() {
+		if ($(question.answers).length > 0) {
+			$("#answers > p").replaceWith("<ol></ol>");
 			
-			// builds up the html for every answer
-			var answer ="<li class='answer'>";
-			answer += 		"<p class='answer_text'>" + this.answer_text + "</p>";
-			answer +=			"<div class='voting'>";
-			answer +=				"<p class='upvote'>+</p>";
-			answer +=				"<p class='rating'>0</p>";
-			answer +=				"<p class='downvote'>-</p>";
-			answer +=			"</div>";
-			answer +=			"<p class='answer_name'>Skriven av ";
-			
-				if(this.name) {
-					answer += this.name;
-				} else {
-					answer += "Anonym";
-				}
-			
-			answer += 		" den " + this.published_time + ".</p>";
-			answer +=		"</li>";
-			$("#answers ol").append(answer);
-			
-		});
-		
+			$(question.answers).each(function() {
+				
+				// builds up the html for every answer
+				var answer ="<li class='answer'>";
+				answer += 		"<p class='answer_text'>" + this.answer_text + "</p>";
+				answer +=			"<div class='voting'>";
+				answer +=				"<p class='upvote'>+</p>";
+				answer +=				"<p class='rating'>0</p>";
+				answer +=				"<p class='downvote'>-</p>";
+				answer +=			"</div>";
+				answer +=			"<p class='answer_name'>Skriven av ";
+				
+					if(this.name) {
+						answer += this.name;
+					} else {
+						answer += "Anonym";
+					}
+				
+				answer += 		" den " + this.published_time + ".</p>";
+				answer +=		"</li>";
+				$("#answers ol").append(answer);
+				
+			});
+		}
 	});
 	
 	
