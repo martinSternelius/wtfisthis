@@ -10,6 +10,11 @@
 	<script type="text/javascript" src="../js/jquery.validate.js"></script>
 	<script type="text/javascript" src="../js/jquery.NobleCount.js"></script>
 	<script type="text/javascript" src="../js/view_question.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		// regex matches the id integer in the url, like ?id=2, to question_id
+		var question_id = /id=(\d+)/.exec(idQuery);
+		question_id = question_id[1];
+	</script>
 </head>
 <body>
 	<div id="wrapper">

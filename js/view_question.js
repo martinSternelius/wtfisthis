@@ -79,4 +79,7 @@ $(document).ready(function() {
 	
 	$("#reply_text").NobleCount("#reply_text_count", {max_chars:text_max});
 	
+	// set the correct action attribute on the reply form
+	$("#reply_to_question form").attr("action", "../api/?resource=answers&question_id="+question_id);
+	
 });
