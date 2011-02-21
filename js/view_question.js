@@ -88,13 +88,14 @@ $(document).ready(function() {
 				$("<p>").text("Laddar...").appendTo("#reply_to_question");
 			},
 			dataType: 'json',
+			type: 'post',
 			success: function (responseText){
 				console.log(responseText);
 				//$("<li class = 'answer' />").text(responseText).appendTo("#answers ol");
 			}
 		};
 		$("#reply_to_question form").ajaxForm(options);
-
+		
 	// set the correct action attribute on the reply form
 	$("#reply_to_question form").attr("action", "../api/?resource=answers&question_id="+question_id);
 
