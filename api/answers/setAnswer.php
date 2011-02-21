@@ -2,12 +2,12 @@
 
 // checks to see that all the POSTs
 if(strlen($_POST['reply_text'])!= 0) {
+
+	$question_id = $_GET['question_id'];	
+	$reply_text = $_POST['reply_text'];
+	$reply_author = $_POST['reply_author'];
 	
-	$replay_text = $_POST['reply_text'];
-	$question_id = $_POST['question_id'];
-	$replay_author = $_POST['reply_author'];
-	
-	$answer = new Answer(null, $question_id, $replay_author, $replay_text, null);
+	$answer = new Answer(null, $question_id, $reply_author, $reply_text, null);
 	
 	if($answer->save()) {
 		echo '{"id":"' . $answer->getId() . '"}';;
