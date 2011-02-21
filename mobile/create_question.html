@@ -9,61 +9,9 @@
 	<script type="text/javascript" src="../js/jquery-1.5.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.validate.js"></script>
 	<script type="text/javascript" src="../js/jquery.NobleCount.js"></script>
+	<script type="text/javascript" src="../js/jquery.form.js"></script>
 	<script type="text/javascript" src="../js/jquery.throbber.min.js"></script>
-	<script type="text/javascript" >
-		$(document).ready(function() {
-			var header_max = 50;
-			var name_max = 50;
-			var text_max = 340;
-			$("#createQuestion").validate({
-				rules: {
-					headerInput: {
-						required: true,
-						minlength: 2,
-						maxlength: header_max
-					},
-					nameInput: {
-						required: false,
-						minlength: 2,
-						maxlength: name_max
-					},
-					textInput: {
-						required: true,
-						minlength: 2,
-						maxlength: text_max
-					},
-					imageUpload: {
-						required: true,
-						accept: "png|jpe?g|gif"
-					}
-				},
-				messages: {
-					headerInput: {
-						required: "Du har glömt att fylla i rubrik",
-						minlength: jQuery.format("Minst {0} tecken!"),
-						maxlength: jQuery.format("Högst {0} tecken!")
-					},
-					nameInput: {
-						minlength: jQuery.format("Minst {0} tecken!"),
-						maxlength: jQuery.format("Högst {0} tecken!")
-					},
-					textInput: {
-						required: "Du har glömt att fylla i",
-						minlength: jQuery.format("Minst {0} tecken!"),
-						maxlength: jQuery.format("Högst {0} tecken!")
-					}
-			   }
-			});
-			
-			$("#headerInput").NobleCount("#headerInputCount", {max_chars:header_max});
-			$("#textInput").NobleCount("#textInputCount", {max_chars:text_max});
-				
-			$("#upload_button").throbber({
-					image: "images/ajax-loader.gif"
-			});
-			  
-		});
-	</script>
+	<script type="text/javascript" src="../js/create_question.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -74,7 +22,7 @@
 					<li><a href="#">Senaste</a></li> 
 					<li><a href="#">Populäraste</a></li> 
 					<li><a href="#">I din närhet</a></li> 
-					<li class="active"><a href="#">Skapa en fråga</a></li> 
+					<li class="active"><a href="create_question.html">Skapa en fråga</a></li> 
 				</ul> 	
 			</nav>
 		</header>
