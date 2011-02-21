@@ -19,7 +19,7 @@
 			
 			$this->assertEqual($question_id, $answer->getQuestionId());
 		}
-		/*
+		
 		public function test_addAnswer() {
 			$question_id = 7;
 			$question = new Question($question_id);
@@ -30,7 +30,7 @@
 			$this->assertEqual($answer_id, $answer_check->getId());
 			$this->assertEqual($question_id, $answer_check->getQuestionId());
 		}
-		*/
+		
 	}
 	
 ?>
