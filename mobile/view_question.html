@@ -7,6 +7,8 @@
 	<meta name="viewport" content="user-scalable=no, width=device_width" />
 	
 	<script type="text/javascript" src="../js/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.validate.js"></script>
+	<script type="text/javascript" src="../js/jquery.NobleCount.js"></script>
 	<script type="text/javascript" src="../js/view_question.js"></script>
 </head>
 <body>
@@ -53,7 +55,7 @@
 			<div id="reply_to_question">
 				<h2>Svara</h2>
 				<form action="../api/?resource=answers" method="post">
-					<label for="reply_text">Text</label>
+					<label for="reply_text">Text <span><span id="reply_text_count"></span> tecken kvar</span></label>
 					<textarea id="reply_text" name="reply_text" rows="8" cols="40" required placeholder="Svara på frågan"></textarea>
 					
 					<label for="reply_author">Namn</label>

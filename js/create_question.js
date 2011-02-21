@@ -53,7 +53,9 @@ $(document).ready(function() {
 	var options = {
 		dataType: 'json',
 		success: function (responseText){
-		window.location = '/mobile/view_question.html?id=' + responseText.id;
+         var loc = document.location.href;
+		window.location = loc.substring(0, loc.lastIndexOf( '/' ) ) + '/view_question.html?id='+responseText.id;
+
 		}
 	};
 	$("#createQuestion").ajaxForm(options);

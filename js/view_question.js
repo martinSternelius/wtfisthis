@@ -47,4 +47,37 @@ $(document).ready(function() {
 		
 	});
 	
+	
+	/* Validator for the reply form */
+	var text_max = 340;
+	var name_max = 50;
+	
+	$("#reply_to_question form").validate({
+		rules: {
+			reply_author: {
+				required: false,
+				minlength: 2,
+				maxlength: name_max
+			},
+			reply_text: {
+				required: true,
+				minlength: 2,
+				maxlength: text_max
+			}
+		},
+		messages: {
+			reply_author: {
+				minlength: jQuery.format("Minst {0} tecken!"),
+				maxlength: jQuery.format("Högst {0} tecken!")
+			},
+			reply_text: {
+				required: "Du har glömt att fylla i svaret!",
+				minlength: jQuery.format("Minst {0} tecken!"),
+				maxlength: jQuery.format("Högst {0} tecken!")
+			}
+	   }
+	});
+	
+	$("#reply_text").NobleCount("#reply_text_count", {max_chars:text_max});
+	
 });
