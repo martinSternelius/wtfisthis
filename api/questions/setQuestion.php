@@ -4,7 +4,7 @@
     * jQuery form file upload needs the return value of a file submit to be wrapped in <textarea> tags
     */
    function handle_output($json){
-      $xhr = isset($_SERVER['HTTP_X_REQUESTED_WITH'])&&$_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'; 
+      $xhr = isset($_SERVER['HTTP_X_REQUESTED_WITH'])&& $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'; 
       if (!$xhr) echo '<textarea>';
       echo json_encode($json);
       if (!$xhr) echo '</textarea>';
