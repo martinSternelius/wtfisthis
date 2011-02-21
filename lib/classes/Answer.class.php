@@ -28,7 +28,6 @@ class Answer extends WTF {
 		return $this->question_id;
 	}
 	
-	
 	public function setQuestionId($id) {
 		$this->question_id = $id;
 	}
@@ -67,7 +66,8 @@ class Answer extends WTF {
 	public static function getAllAnswersOfQuestion($question_id){
 		$answers_array = Db::query("	
 										SELECT * FROM `wtfisthis`.`answers`
-										WHERE `answers`.`question_id` = $question_id;
+										WHERE `answers`.`question_id` = $question_id
+										ORDER BY `published_time` DESC;
 									");
 		$all_answers = Array();
 		while ($row = $answers_array->fetch_assoc()){
