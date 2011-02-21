@@ -79,16 +79,16 @@ $(document).ready(function() {
 	
 	$("#reply_text").NobleCount("#reply_text_count", {max_chars:text_max});
 	
-	/*var options = {
+	var options = {
 			beforeSubmit: function(arr) { 
 				$("<p>").text("Laddar...").appendTo("#reply_to_question");
 			},
 			dataType: 'json',
 			success: function (responseText){
 				console.log(responseText);
-				$('<p />').text(""+responseText+"").prependTo("#answers ol");
+				//$("<li class = 'answer' />").text(responseText).appendTo("#answers ol");
 			}
 		};
-		$("#reply_to_question form").ajaxForm(options);*/
+		$("#reply_to_question form").ajaxForm(options);
 	
 });
