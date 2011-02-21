@@ -36,10 +36,11 @@ if (isset($_GET['resource'])) {
 	# GET /api/index.php?resource=answers // &question_id={id}
 	if ($_GET['resource'] == "answers" 
 		&& isset($_GET['question_id']) 
-		&& is_numeric($_GET['question_id'])){
+		&& is_numeric($_GET['question_id'])
+		){
 		
 		if ($_SERVER['REQUEST_METHOD'] == "POST"){
-			include 'questions/setAnswer.php';
+			include 'answers/setAnswer.php';
 		}
 		/*
 		else if ($_SERVER['REQUEST_METHOD'] == "GET"){
