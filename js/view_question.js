@@ -24,8 +24,6 @@ $(document).ready(function() {
 		}   
 		// gets the answers and foreach displays them below the question
 		
-		console.log(question.answers);
-		
 		$(question.answers).each(function() {
 			
 			// builds up the html for every answer
