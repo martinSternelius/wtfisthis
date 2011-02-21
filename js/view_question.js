@@ -91,7 +91,25 @@ $(document).ready(function() {
 			type: 'post',
 			success: function (responseText){
 				console.log(responseText);
-				//$("<li class = 'answer' />").text(responseText).appendTo("#answers ol");
+				var answer ="<li class='answer'>";
+				answer += 		"<p class='answer_text'>" + responseText.answer_text + "</p>";
+				answer +=			"<div class='voting'>";
+				answer +=				"<p class='upvote'>+</p>";
+				answer +=				"<p class='rating'>0</p>";
+				answer +=				"<p class='downvote'>-</p>";
+				answer +=			"</div>";
+				answer +=			"<p class='answer_name'>Skriven av ";
+				
+					if(responseText.name) {
+						answer += responseText.name;
+					} else {
+						answer += "Anonym";
+					}
+				
+				answer += 		" den " + responseText.published_time + ".</p>";
+				answer +=		"</li>";
+				$(answer).prependTo("#answers ol").hide().fadeIn(500);
+
 			}
 		};
 		$("#reply_to_question form").ajaxForm(options);

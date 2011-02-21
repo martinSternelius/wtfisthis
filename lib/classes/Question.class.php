@@ -78,7 +78,7 @@ class Question extends WTF {
 	*/
 	public function save() {
 		$result = false;
-		$sql = "INSERT INTO `wtfisthis`.`questions` 
+		$sql = "INSERT INTO `questions` 
 			(`id`, `title`, `description`, `photo_id`, `author`, `post_date`) 
 			VALUES (NULL, ?, ?, ?, ?, NOW())";
 		
@@ -115,7 +115,7 @@ class Question extends WTF {
    }
 
    private function storePhotoUrls($urls){
-      $statement = Db::prepare("UPDATE `wtfisthis`.`questions`".
+      $statement = Db::prepare("UPDATE `questions`".
          " SET `thumbnail` = ?, `medium` = ?, `original` = ? WHERE `id` = ?");
       if(!$statement) die('No statement');
       $statement->bind_param("ssss", $urls['thumbnail'],$urls['medium'],$urls['original'],$this->id);

@@ -35,7 +35,7 @@ class Answer extends WTF {
 	public function save() {
 		$result = false;
 		$sql = "
-			INSERT INTO `wtfisthis`.`answers` 
+			INSERT INTO `answers` 
 			(`answer_id`, `question_id`, `name`, `answer_text`, `published_time`) 
 			VALUES (NULL, ?, ?, ?, NULL)
 			";
@@ -65,7 +65,7 @@ class Answer extends WTF {
 		
 	public static function getAllAnswersOfQuestion($question_id){
 		$answers_array = Db::query("	
-										SELECT * FROM `wtfisthis`.`answers`
+										SELECT * FROM `answers`
 										WHERE `answers`.`question_id` = $question_id
 										ORDER BY `published_time` DESC;
 									");
@@ -82,4 +82,3 @@ class Answer extends WTF {
 	
 }
 
-?>
