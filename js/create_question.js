@@ -5,9 +5,9 @@ $(document).ready(function() {
 	$("#createQuestion").validate({
 		rules: {
 			headerInput: {
-			required: true,
-			minlength: 2,
-			maxlength: header_max
+				required: true,
+				minlength: 2,
+				maxlength: header_max
 			},
 			nameInput: {
 				required: false,
