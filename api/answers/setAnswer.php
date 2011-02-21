@@ -1,11 +1,11 @@
 <?php
 
 // checks to see that all the POSTs
-if(strlen($_POST['replay_text'])!= 0) {
+if(strlen($_POST['reply_text'])!= 0) {
 	
-	$replay_text = $_POST['replay_text'];
+	$replay_text = $_POST['reply_text'];
 	$question_id = $_POST['question_id'];
-	$replay_author = $_POST['replay_author'];
+	$replay_author = $_POST['reply_author'];
 	
 	$answer = new Answer(null, $question_id, $replay_author, $replay_text, null);
 	
