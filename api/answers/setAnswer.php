@@ -1,5 +1,7 @@
 <?php
 
+$result = array();
+
 // checks to see that all the POSTs
 if(strlen($_POST['reply_text'])!= 0) {
 	
@@ -18,12 +20,14 @@ if(strlen($_POST['reply_text'])!= 0) {
 	$answer = new Answer(null, $question_id, $reply_author, $reply_text, null);
 	
 	if($answer->save()) {
-		echo '{"id":"' . $answer->getId() . '"}';;
+		$result['id'] = $answer->getId();
 	} else {
-		echo '{"error":"Det gick inte att spara " . "svaret" . " i databasen"}';
+		$result['error'] = "Det gick inte att spara svaret i databasen";
 	}
 	
 }
 else {
-	echo '{"error":"Fyll i alla fält!"}';
+	$result['error'] = "Fyll i alla fält!";
 }
+
+Json::emit_as_jsonp($result);
