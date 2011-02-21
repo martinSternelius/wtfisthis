@@ -84,5 +84,40 @@ $(document).ready(function() {
 	});
 	
 	$("#reply_text").NobleCount("#reply_text_count", {max_chars:text_max});
+
+	var options = {
+			beforeSubmit: function(arr) { 
+				$("<p>").text("Laddar...").appendTo("#reply_to_question");
+			},
+			dataType: 'json',
+			type: 'post',
+			success: function (responseText){
+				console.log(responseText);
+				var answer ="<li class='answer'>";
+				answer += 		"<p class='answer_text'>" + responseText.answer_text + "</p>";
+				answer +=			"<div class='voting'>";
+				answer +=				"<p class='upvote'>+</p>";
+				answer +=				"<p class='rating'>0</p>";
+				answer +=				"<p class='downvote'>-</p>";
+				answer +=			"</div>";
+				answer +=			"<p class='answer_name'>Skriven av ";
+				
+					if(responseText.name) {
+						answer += responseText.name;
+					} else {
+						answer += "Anonym";
+					}
+				
+				answer += 		" den " + responseText.published_time + ".</p>";
+				answer +=		"</li>";
+				$(answer).prependTo("#answers ol").hide().fadeIn(500);
+
+			}
+		};
+		$("#reply_to_question form").ajaxForm(options);
+		
+	// set the correct action attribute on the reply form
+	$("#reply_to_question form").attr("action", "../api/?resource=answers&question_id="+question_id);
+
 	
 });
