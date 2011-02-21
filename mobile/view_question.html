@@ -11,6 +11,11 @@
 	<script type="text/javascript" src="../js/jquery.NobleCount.js"></script>
 	<script type="text/javascript" src="../js/jquery.form.js"></script>
 	<script type="text/javascript" src="../js/view_question.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		// regex matches the id integer in the url, like ?id=2, to question_id
+		var question_id = /id=(\d+)/.exec(idQuery);
+		question_id = question_id[1];
+	</script>
 </head>
 <body>
 	<div id="wrapper">
@@ -55,7 +60,7 @@
 
 			<div id="reply_to_question">
 				<h2>Svara</h2>
-				<form action="../api/?resource=answers" method="post">
+				<form action="../api/index.php?resource=answers" method="post">
 					<label for="reply_text">Text <span><span id="reply_text_count"></span> tecken kvar</span></label>
 					<textarea id="reply_text" name="reply_text" rows="8" cols="40" required placeholder="Svara på frågan"></textarea>
 					
