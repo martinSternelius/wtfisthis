@@ -6,11 +6,7 @@ $(document).ready(function() {
 	var question_id = /id=(\d+)/.exec(idQuery);
 	var question_id = question_id[1];
 	
-	$.get('../api/index.php',{"resource":"questions","id":question_id}, function(question) {
-		
-		// the question json object is saved as a string variable, we need to parse it
-		// before we can use it as a json object
-		question = jQuery.parseJSON(question);
+	$.getJSON('../api/index.php?callback=?',{"resource":"questions","id":question_id}, function(question) {
 		
 		// displays the answer and pushes it to the html
 	 	$("#question_title").html(question.title);
