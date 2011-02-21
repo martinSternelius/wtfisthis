@@ -6,6 +6,10 @@ $(document).ready(function() {
 	var question_id = /id=(\d+)/.exec(idQuery);
 	var question_id = question_id[1];
 	
+	// add a missing id to the form action attribute
+	var form_action = $("form:first").attr("action");
+	$("form:first").attr("action",form_action + "&question_id=" + question_id);
+	
 	$.getJSON('../api/index.php?callback=?',{"resource":"questions","id":question_id}, function(question) {
 		
 		// displays the answer and pushes it to the html
