@@ -6,7 +6,14 @@ if(strlen($_POST['reply_text'])!= 0) {
 	$question_id = $_GET['question_id'];
 	
 	$reply_text = $_POST['reply_text'];
-	$reply_author = $_POST['reply_author'];
+	
+	// if the author is not set, then the empty "" must be overriden 
+	// to null to allow default values in the classes to be honoured
+	if($_POST['reply_author'] == "") {
+		$reply_author = "Anonym";
+	} else {
+		$reply_author = $_POST['reply_author'];
+	}
 	
 	$answer = new Answer(null, $question_id, $reply_author, $reply_text, null);
 	

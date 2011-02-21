@@ -18,8 +18,16 @@ if((strlen($_POST['headerInput'])!= 0 )
 	
 	$title = $_POST['headerInput'];
 	$description = $_POST['textInput'];
-	$author = $_POST['nameInput'];
-   $photo = Photo::from_file($_FILES["imageUpload"]["tmp_name"], $title, $description);
+	
+	// if the author is not set, then the empty "" must be overriden 
+	// to null to allow default values in the classes to be honoured
+	if($_POST['reply_author'] == "") {
+		$author = null;
+	} else {
+		$author = $_POST['nameInput'];
+	}
+	
+   	$photo = Photo::from_file($_FILES["imageUpload"]["tmp_name"], $title, $description);
 	
 	$question = new Question($id = null, $title, $author, $description, $photo);
 	
