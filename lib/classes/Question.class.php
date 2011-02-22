@@ -1,7 +1,7 @@
 <?php
 class Question extends WTF {
 	
-	private $id;
+	protected $id;
 	protected $title;
 	protected $author;
 	protected $post_date;
