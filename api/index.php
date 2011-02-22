@@ -16,41 +16,24 @@ require_once '../lib/base.php';
 
 
 // First check if the call is for a resource (in the database)
-if (isset($_GET['resource'])) {
-	
-	# GET /api/index.php?resource=questions
-	if ($_GET['resource'] == "questions"){
-		if ($_SERVER['REQUEST_METHOD'] == "POST"){
-			include 'questions/setQuestion.php';
-		}else if ($_SERVER['REQUEST_METHOD'] == "GET"){
-			
-			//If we request a single question by id, we don't want to get all of them
-			if (isset($_GET['id'])&&is_numeric($_GET['id'])) {
-				include 'questions/getQuestionById.php';
-			} else {
-				include 'questions/getQuestions.php';
-			}
-		}
-	}
-	
-	# GET /api/index.php?resource=answers // &question_id={id}
-	if ($_GET['resource'] == "answers" 
-		&& isset($_GET['question_id']) 
-		&& is_numeric($_GET['question_id'])
-		){
-		
-		if ($_SERVER['REQUEST_METHOD'] == "POST"){
-			include 'answers/setAnswer.php';
-		}
-		/*
-		else if ($_SERVER['REQUEST_METHOD'] == "GET"){
-			//If we request a single answer by id, we don't want to get all of them
-			if (isset($_GET['id'])&&is_numeric($_GET['id'])) {
-				include 'answers/getAnswerById.php';
-			} else {
-				include 'answers/getAnswers.php';
-			}
-		}
-		*/
-	}
+// at this point we die if the request is for anything but a resource
+if (!isset($_GET['resource'])) die('invalid request');
+
+$method   = $_SERVER['REQUEST_METHOD'];
+$resource = $_GET['resource'];  
+
+//Ensure the resource parameter is only alpha chars
+if(preg_match('/^[\w]+$/', $resource) < 1) die('invalid resource');
+
+
+/*
+ * Move handling of different resources to separate thing_handler.php
+ * files to make it easier to add or edit separate resource handlers
+ */
+
+$handler = $resource . '_handler.php';
+if(file_exists($handler)){
+   include $handler;
+} else {
+   die('invalid resource');
 }
