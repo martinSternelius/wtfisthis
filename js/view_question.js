@@ -38,8 +38,8 @@ $(document).ready(function() {
 				answer +=			"</div>";
 				answer +=			"<p class='answer_name'>Skriven av ";
 				
-					if(this.name) {
-						answer += this.name;
+					if(this.author) {
+						answer += this.author;
 					} else {
 						answer += "Anonym";
 					}
