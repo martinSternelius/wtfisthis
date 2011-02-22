@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/Wtfisthis/tests/testbild.jpg" />
+<title>uploadQuestion</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">uploadQuestion</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Wtfisthis/mobile/create_question.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>headerInput</td>
+	<td>Testrubrik</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>imageUpload</td>
+	<td>Wtfisthis/tests/testbild.jpg</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>textInput</td>
+	<td>Text att skriva in</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>nameInput</td>
+	<td>Sten-Åke</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>createQuestionButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td></td>
+	<td>3000</td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td></td>
+	<td>http://localhost/Wtfisthis/mobile/view_question.html?id=*</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Testrubrik</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Text att skriva in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Det finns inga svar ännu till den här frågan. Vill du ge ett svar?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

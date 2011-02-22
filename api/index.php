@@ -32,4 +32,25 @@ if (isset($_GET['resource'])) {
 			}
 		}
 	}
+	
+	# GET /api/index.php?resource=answers // &question_id={id}
+	if ($_GET['resource'] == "answers" 
+		&& isset($_GET['question_id']) 
+		&& is_numeric($_GET['question_id'])
+		){
+		
+		if ($_SERVER['REQUEST_METHOD'] == "POST"){
+			include 'answers/setAnswer.php';
+		}
+		/*
+		else if ($_SERVER['REQUEST_METHOD'] == "GET"){
+			//If we request a single answer by id, we don't want to get all of them
+			if (isset($_GET['id'])&&is_numeric($_GET['id'])) {
+				include 'answers/getAnswerById.php';
+			} else {
+				include 'answers/getAnswers.php';
+			}
+		}
+		*/
+	}
 }

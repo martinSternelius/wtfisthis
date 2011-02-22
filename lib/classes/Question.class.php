@@ -2,9 +2,9 @@
 class Question extends WTF {
 	
 	private $id;
-   protected $title;
-   protected $author;
-   protected $post_date;
+	protected $title;
+	protected $author;
+	protected $post_date;
 	protected $description;
 	protected $photo;
 	protected $answers;
@@ -21,13 +21,14 @@ class Question extends WTF {
 		if (!is_numeric($id)){
 			$this->title = $title;
 			$this->description = $description;
-         $this->photo = $photo;
-         $this->author = $author;
+			$this->photo = $photo;
+			$this->author = $author;
+			$this->answers = Array();
 		}else {
 			$this->loadQuestion($id);
-		}
-
+		}	
 	}
+	
 	/** 
 	 * Get the question's id
 	 */
@@ -38,6 +39,17 @@ class Question extends WTF {
 	public function getAnswers() {
 		return $this->answers;
 	}
+	
+	//TODO Only for a test a the moment, refactor if you actually use it.
+	public function getAnswer($id) {
+		foreach($this->answer as $answer) {
+			if ($answer->getId() == $id) {
+				return $answer;
+			}
+		}
+		return false;
+	}
+	
 	/**
 	 * 
 	 * Get the question's photo
@@ -53,13 +65,20 @@ class Question extends WTF {
 		return $this->author;
 	}
 	
+	/**
+	* Add an answer to the answer list.
+	*/
+	public function addAnswer($answer) {
+		$answer->setQuestionId($this->id);
+		$this->answer[] = $answer;
+	}
 	
 	/**
 	* Save The newly created Question to the DB. Needs to use the DB class in a more consistent way.
 	*/
 	public function save() {
 		$result = false;
-		$sql = "INSERT INTO `wtfisthis`.`questions` 
+		$sql = "INSERT INTO `questions` 
 			(`id`, `title`, `description`, `photo_id`, `author`, `post_date`) 
 			VALUES (NULL, ?, ?, ?, ?, NOW())";
 		
@@ -99,7 +118,7 @@ class Question extends WTF {
    }
 
    private function storePhotoUrls($urls){
-      $statement = Db::prepare("UPDATE `wtfisthis`.`questions`".
+      $statement = Db::prepare("UPDATE `questions`".
          " SET `thumbnail` = ?, `medium` = ?, `original` = ? WHERE `id` = ?");
       if(!$statement) die('No statement');
       $statement->bind_param("ssss", $urls['thumbnail'],$urls['medium'],$urls['original'],$this->id);

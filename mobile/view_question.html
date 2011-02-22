@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- <meta charset=utf-8 /> -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>WTF is this</title>
 	<link rel="stylesheet" href="../style/mobile.css" type="text/css" />
 	<meta name="viewport" content="user-scalable=no, width=device_width" />
 	
 	<script type="text/javascript" src="../js/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.validate.js"></script>
+	<script type="text/javascript" src="../js/jquery.NobleCount.js"></script>
+	<script type="text/javascript" src="../js/jquery.form.js"></script>
 	<script type="text/javascript" src="../js/view_question.js"></script>
+<<<<<<< HEAD
+	<script type="text/javascript" charset="utf-8">
+
+	</script>
+=======
+>>>>>>> 209a5454ef504ba52354a11bc839a21ce6c97f32
 </head>
 <body>
 	<div id="wrapper">
@@ -32,28 +42,24 @@
 			<div id="image_section">
 				<!-- placeholder image -->
 				<img id="question_image" />
-				<span id="question_text">
-					<p id="question_description"></p>
-					<p id="question_author_and_date"></p>
-				</span>
+				<p id="question_description"></p>
+				<p id="question_author_and_date"></p>
 			</div>
 			<!-- Google Map. Not visible by default on mobile. -->
 			<div id="map_section">
 				<img src="images/map.gif" id="map" />
 			</div>
 			
-			
 			<div id="answers">
 				<h2 id="answers_header">Svar</h2>
-				<ol>
-				</ol>				
+				<p>Det finns inga svar ännu till den här frågan. Vill du ge ett svar?</p>				
 			</div>
-			
+
 			<div id="reply_to_question">
 				<h2>Svara</h2>
-				<form action="../api/?resource=answers" method="post">
-					<label for="reply_text">Text</label>
-					<textarea id="reply_text" name="reply_text" rows="8" cols="40" required placeholder="Svara på frågan"></textarea>
+				<form action="../api/index.php?resource=answers" method="post">
+					<label for="reply_text">Text <span><span id="reply_text_count"></span> tecken kvar</span></label>
+					<textarea id="reply_text" name="reply_text" rows="8" cols="40" required="required" placeholder="Svara på frågan"></textarea>
 					
 					<label for="reply_author">Namn</label>
 					<input type="text" name="reply_author" id="reply_author" placeholder="Namnet är frivilligt" />
@@ -62,7 +68,7 @@
 				</form>
 				
 			</div>
-				
+
 		</div>
 		
 		<div id="about">
@@ -71,9 +77,9 @@
 		</div>
 	
 	
-		<div id="footer">
+		<footer>
 			<p>copyright &copy; <a href="mailto:wtf@isthis.net">WTF is this</a> 2011</p>
-		</div>
+		</footer>
 	</div>
 </body>
 </html>

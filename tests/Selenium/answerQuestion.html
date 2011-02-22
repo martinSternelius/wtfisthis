@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/Wtfisthis/tests/testbild.jpg" />
+<title>answerQuestion</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">answerQuestion</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Wtfisthis/mobile/view_question.html?id=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>reply_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>reply_author</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>reply_text</td>
+	<td>Test Svar</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>reply_author</td>
+	<td>Sten-Åke</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@type='submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td></td>
+	<td>500</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>Det finns inga svar ännu till den här frågan. Vill du ge ett svar?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td>Skriven av Sten-Åke den</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>reply_text</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

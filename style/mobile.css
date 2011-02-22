@@ -63,6 +63,10 @@ h1, footer {
 	padding: 10px;
 }
 
+p {
+	font-size:14px;
+}
+
 /* end common css */
 
 /* begin question-form */
@@ -198,19 +202,15 @@ div#map_section {
 	display:none;	
 }
 
-span#question_text {
-	font-size:14px;
-}
-
-span#question_text > p {
+#image_section > p {
 	margin-top:5px;	
 }
 
-span#question_text > p#question_author_and_date {
+p#question_author_and_date {
 	color:#7a9fbf;
 }
 
-
+/* view_select är byte av bild, karta länkar m.m. */
 span#view_select {
 	font-size:14px;	
 }
@@ -240,6 +240,5 @@ li.answer div.voting {
 li.answer p.answer_name {
 	color:#7a9fbf;
 }
-
 
 
