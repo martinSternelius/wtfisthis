@@ -43,7 +43,7 @@ class Answer extends WTF {
 			$result = $statement->execute();
 			$statement->close();
 		}
-		$this->answer_id = DB::insert_id();
+		$this->loadAnswer(DB::insert_id());
 		return $result;
 	}
 	

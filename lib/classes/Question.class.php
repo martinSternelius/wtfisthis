@@ -36,6 +36,13 @@ class Question extends WTF {
 		return $this->id;
 	}
 	
+	/** 
+	 * Get the question's title
+	 */
+	public function getTitle() {
+		return $this->title;
+	}
+	
 	public function getAnswers() {
 		return $this->answers;
 	}
@@ -65,6 +72,13 @@ class Question extends WTF {
 		return $this->author;
 	}
 	
+	/** 
+	 * Get the question's description
+	 */
+	public function getDescription() {
+		return $this->description;
+	}
+	
 	/**
 	* Add an answer to the answer list.
 	*/
@@ -90,7 +104,7 @@ class Question extends WTF {
 			}
 			$statement->close();
 		}
-		$this->id = DB::insert_id();
+		$this->loadQuestion(DB::insert_id());
 		return $result;
 	}
 	
