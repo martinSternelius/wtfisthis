@@ -89,7 +89,7 @@ $(document).ready(function() {
 			beforeSubmit: function(arr) { 
 				$("<div />").attr("id", "throbber").html('<img src="images/ajax-loader.gif" />').appendTo($("#reply_to_question"));
 			},
-			dataType: 'json',
+			dataType: 'jsonp',
 			type: 'post',
 			success: function (responseText){
 				$("#throbber").remove();
