@@ -34,11 +34,9 @@ class Answer extends WTF {
 	
 	public function save() {
 		$result = false;
-		$sql = "
-			INSERT INTO `answers` 
-			(`answer_id`, `question_id`, `name`, `answer_text`, `published_time`) 
-			VALUES (NULL, ?, ?, ?, NULL)
-			";
+		$sql = "INSERT INTO `answers` ". 
+			"(`question_id`, `name`, `answer_text`) ". 
+			"VALUES (?, ?, ?)";
 		
 		if ($statement = Db::prepare($sql)) { 
 			$statement->bind_param("iss", $this->question_id, $this->name, $this->answer_text);
@@ -50,34 +48,33 @@ class Answer extends WTF {
 	}
 	
 	private function loadAnswer($answer_id) {
-		$answer = Db::query("	
-								SELECT * FROM `answers`
-								WHERE `answers`.`answer_id` = '$answer_id';
-							");
-		while ($row = $answer->fetch_assoc()){
-			$this->answer_id = $row['answer_id'];
-			$this->question_id = $row['question_id'];
-			$this->name = $row['name'];
-			$this->answer_text = $row['answer_text'];
-			$this->published_time = $row['published_time'];
-		}		
+      $answer_id = Db::escape($answer_id); //sanitize input
+      $answer = Db::get_assoc(
+         "SELECT answer_id, question_id, name, answer_text, published_time ".
+         "FROM `answers` ".
+         "WHERE `answers`.`answer_id` = '$answer_id';");
+      if(empty($answer)) return;
+
+      //the keys coming back from db have a 1:1 relationship
+      //to properties of this object
+      foreach($answer[0] as $prop => $value){
+         $this->$prop = $value;
+      } 
 	}
-		
+
+   /**
+    * Returns all answers associated with a question as an array of
+    * associative arrays. There's really no need to make objects of
+    * the results when all that's done with the objects is to serialize
+    * them to arrays again. This is shorter and less errorprone
+    */   
 	public static function getAllAnswersOfQuestion($question_id){
-		$answers_array = Db::query("	
-										SELECT * FROM `answers`
-										WHERE `answers`.`question_id` = $question_id
-										ORDER BY `published_time` DESC;
-									");
-		$all_answers = Array();
-		while ($row = $answers_array->fetch_assoc()){
-			$all_answers[] = new Answer($row['answer_id'],
-										$row['question_id'], 
-										$row['name'],
-										$row['answer_text'], 
-										$row['published_time']);
-		}
-		return $all_answers;
+      $question_id = Db::escape($question_id);
+      return Db::get_assoc(
+         "SELECT answer_id, question_id, name, answer_text, published_time ".
+         "FROM `answers` ".
+			"WHERE `answers`.`question_id` = $question_id ".
+			"ORDER BY `published_time` DESC;");
 	}
 	
 }
