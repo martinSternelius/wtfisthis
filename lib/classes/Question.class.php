@@ -63,9 +63,12 @@ class Question extends WTF {
 			(`id`, `title`, `description`, `photo_id`, `author`, `post_date`) 
 			VALUES (NULL, ?, ?, ?, ?, NOW())";
 		
-		if ($statement = Db::prepare($sql)) { 
+		if ($statement = Db::prepare($sql)) {
 			$statement->bind_param("ssss", $this->title, $this->description, $this->photo->getId(),$this->author);
 			$result = $statement->execute();
+			if (!$result) {
+				echo $statement->error;
+			}
 			$statement->close();
 		}
 		$this->id = DB::insert_id();
