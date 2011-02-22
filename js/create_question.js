@@ -44,25 +44,24 @@ $(document).ready(function() {
 
 	$("#headerInput").NobleCount("#headerInputCount", {max_chars:header_max});
 	$("#textInput").NobleCount("#textInputCount", {max_chars:text_max});
-		
-/*	$("#upload_button").throbber({
-			image: "images/ajax-loader.gif"
-	});*/
 	
 	
 	var options = {
 		beforeSubmit: function(arr) { 
-			$("<p>").text("Laddar...").appendTo("#content");
+			// nothing
 		},
 		dataType: 'json',
 		success: function (responseText){
+			$("#throbber").remove();
 			var loc = document.location.href;
 			window.location = loc.substring(0, loc.lastIndexOf( '/' ) ) + '/view_question.html?id='+responseText.id;
-
 		}
+		
 	};
 	$("#createQuestion").ajaxForm(options);
 	
-	
-	
+	$("#createQuestionButton").click(function() {
+		$("<div />").attr("id", "throbber").html('<img src="images/ajax-loader.gif" />').appendTo($(this));
+	});
+		
 });

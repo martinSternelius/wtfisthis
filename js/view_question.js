@@ -87,6 +87,7 @@ $(document).ready(function() {
 
 	var options = {
 			beforeSubmit: function(arr) { 
+				// adds the throbber loading gif
 				$("<p>").text("Laddar...").appendTo("#reply_to_question");
 			},
 			dataType: 'json',
@@ -118,6 +119,6 @@ $(document).ready(function() {
 		
 	// set the correct action attribute on the reply form
 	$("#reply_to_question form").attr("action", "../api/?resource=answers&question_id="+question_id);
-
+	
 	
 });
