@@ -22,7 +22,7 @@ if((strlen($_POST['headerInput'])!= 0 )
 	// if the author is not set, then the empty "" must be overriden 
 	// to null to allow default values in the classes to be honoured
 	if($_POST['nameInput'] == "") {
-		$author = null;
+		$author = 'Anonym';
 	} else {
 		$author = $_POST['nameInput'];
 	}
