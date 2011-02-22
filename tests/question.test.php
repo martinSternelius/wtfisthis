@@ -9,13 +9,17 @@
 		public function test_save() {
 			$title = 'test question';
 			$description = "This is a test question";
-			$question = new Question($id = null, $title, 'Martin', $description, Photo::from_file('../mobile/images/handwriting_small.jpg', $title, $description));
+			$author = 'Martin';
+			$question = new Question($id = null, $title, $author, $description, Photo::from_file('/var/public_html/wtfisthis/mobile/images/handwriting_small.jpg', $title, $description));
 			$question->save();
 			$id = Db::insert_id();
 			$this->assertEqual($id, $question->getId());
+			$this->assertEqual($author, $question->getAuthor());
 			$this->assertTrue(is_numeric($id) && is_numeric($question->getId()));
 			$this->assertFalse($id == 0);
 			$this->assertFalse($question->getId() == 0);
+			$this->assertNotEqual(false, $question->delete());
+			$this->assertNull($question->getId());
 		}
 		
 		

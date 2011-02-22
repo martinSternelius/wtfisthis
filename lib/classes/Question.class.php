@@ -57,8 +57,8 @@ class Question extends WTF {
 	public function getPhoto() {
 		return $this->photo;
 	}
-	/**
-	 * 
+	
+	/** 
 	 * Get the question's author
 	 */
 	public function getAuthor() {
@@ -91,6 +91,23 @@ class Question extends WTF {
 			$statement->close();
 		}
 		$this->id = DB::insert_id();
+		return $result;
+	}
+	
+	public function delete() {
+		$result = false;
+		$sql = "DELETE FROM `questions` 
+			WHERE id = ?";
+		
+		if ($statement = Db::prepare($sql)) {
+			$statement->bind_param("i", $this->id);
+			$result = $statement->execute();
+			if (!$result) {
+				echo $statement->error;
+			}
+			$statement->close();
+		}
+		$this->id = null;
 		return $result;
 	}
 	
