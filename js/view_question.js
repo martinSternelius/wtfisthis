@@ -87,13 +87,12 @@ $(document).ready(function() {
 
 	var options = {
 			beforeSubmit: function(arr) { 
-				// adds the throbber loading gif
-				$("<p>").text("Laddar...").appendTo("#reply_to_question");
+				$("<div />").attr("id", "throbber").html('<img src="images/ajax-loader.gif" />').appendTo($("#reply_to_question"));
 			},
 			dataType: 'json',
 			type: 'post',
 			success: function (responseText){
-				console.log(responseText);
+				$("#throbber").remove();
 				var answer ="<li class='answer'>";
 				answer += 		"<p class='answer_text'>" + responseText.answer_text + "</p>";
 				answer +=			"<div class='voting'>";
@@ -112,7 +111,6 @@ $(document).ready(function() {
 				answer += 		" den " + responseText.published_time + ".</p>";
 				answer +=		"</li>";
 				$(answer).prependTo("#answers ol").hide().fadeIn(500);
-
 			}
 		};
 		$("#reply_to_question form").ajaxForm(options);
