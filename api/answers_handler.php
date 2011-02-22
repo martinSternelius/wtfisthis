@@ -3,9 +3,9 @@
 	if(isset($_GET['question_id']) 
 		&& is_numeric($_GET['question_id'])){
    
-         if ($method == "POST"){
+         if(is_post()){
             include 'answers/setAnswer.php';
-         } else if ($method == "GET"){
+         } else if (is_get()){
 			//If we request a single answer by id, we don't want to get all of them
             if (isset($_GET['id'])&&is_numeric($_GET['id'])) {
                include 'answers/getAnswerById.php';

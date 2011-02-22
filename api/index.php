@@ -13,13 +13,12 @@
  * password: ASDFqwerty123
  */
 require_once '../lib/base.php';
-
+require_once './helpers.php';
 
 // First check if the call is for a resource (in the database)
 // at this point we die if the request is for anything but a resource
 if (!isset($_GET['resource'])) die('invalid request');
 
-$method   = $_SERVER['REQUEST_METHOD'];
 $resource = $_GET['resource'];  
 
 //Ensure the resource parameter is only alpha chars
