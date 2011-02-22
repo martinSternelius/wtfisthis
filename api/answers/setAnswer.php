@@ -1,30 +1,33 @@
 <?php
-
 $result = array();
 
-// checks to see that all the POSTs
-if(strlen($_POST['reply_text'])!= 0) {
+/**
+ * Define validator for post data
+ */
+$val = new Validator($_POST);
+$val->add_field('reply_text',array('required'=>true));
+$val->add_field('reply_author',array('default'=>'Anonym'));
 
-	$question_id = $_GET['question_id'];	
-	$reply_text = $_POST['reply_text'];
-	
-	if($_POST['reply_author'] == "") {
-		$reply_author = "Anonym";
-	} else {
-		$reply_author = $_POST['reply_author'];
-	}
-	
-	$answer = new Answer(null, $question_id, $reply_author, $reply_text, null);
-	
-	if($answer->save()) {
-		$result = $answer->toArray();
-   } else {
-		$result['error'] = "Det gick inte att spara svaret i databasen";
-	}
-	
-}
-else {
-	$result['error'] = "Fyll i alla fält!";
+/**
+ * If form isn't valid just emit the errors and stop processing
+ */
+if(!$val->is_valid()){
+   Json::emit_as_jsonp($val->errors());
+   die();
 }
 
+/* 
+ * If we've come this far the indata is valid, let's just process it
+ */
+$indata = $val->get_data();
+$question_id = $_GET['question_id'];	
+
+$answer = new Answer(null, $question_id, $indata['reply_author'], $indata['reply_text'], null);
+
+if($answer->save()) {
+   $result = $answer->toArray();
+} else {
+   $result['error'] = "Det gick inte att spara svaret i databasen";
+}
+	
 Json::emit_as_jsonp($result);

@@ -1,44 +1,45 @@
 <?php
 
-   /**
-    * jQuery form file upload needs the return value of a file submit to be wrapped in <textarea> tags
-    */
-   function handle_output($json){
-      $xhr = isset($_SERVER['HTTP_X_REQUESTED_WITH'])&& $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'; 
-      if (!$xhr) echo '<textarea>';
-      echo json_encode($json);
-      if (!$xhr) echo '</textarea>';
-   }   
+/**
+ * Define validator for post data
+ */
+$val = new Validator($_POST);
+$val->add_field('headerInput',array('required'=>true,'maxlength'=>20));
+$val->add_field('textInput', array('required'=>true));
+$val->add_field('nameInput',array('default'=>'Anonym'));
+$val->require_file('imageUpload');
 
+/*
+ * If form isn't valid just emit the errors and stop processing
+ */
+if(!$val->is_valid()) {
+   Json::emit_as_jsonp($val->errors(), true);
+   die();
+}
 
-// checks to see that all the POSTs
-// file is not checked ATM
-if((strlen($_POST['headerInput'])!= 0 )
-	&& (strlen($_POST['textInput'])!= 0 )) {
-	
-	$title = $_POST['headerInput'];
-	$description = $_POST['textInput'];
-	
-	// if the author is not set, then the empty "" must be overriden 
-	// to null to allow default values in the classes to be honoured
-	if($_POST['nameInput'] == "") {
-		$author = 'Anonym';
-	} else {
-		$author = $_POST['nameInput'];
-	}
-	
-   	$photo = Photo::from_file($_FILES["imageUpload"]["tmp_name"], $title, $description);
-	
-	$question = new Question($id = null, $title, $author, $description, $photo);
-	
-	if($question->save()) {
-		handle_output(array('id' => $question->getId()));
-	} else {
-		handle_output(array('error' => "Det gick inte att spara frågan i databasen"));
-	}
-	
-	
+/*
+ * If we've come this far the indata is valid, let's just process it
+ */
+$indata = $val->get_data();
+
+$title = $indata['headerInput'];
+$description = $indata['textInput'];
+$author = $indata['nameInput'];
+
+/*
+ * if we add the debug parameter we can test without uploading to flickr
+ */
+if(isset($_GET['debug'])){
+   $photo = new Photo('5431368117');
+}else{
+   $photo = Photo::from_file($indata['_file'], $title, $description);
 }
-else {
-	handle_output(array('error' => "Fyll i alla fält!"));
+
+$question = new Question($id = null, $title, $author, $description, $photo);
+
+if($question->save()) {
+   $result['id'] = $question->getId();
+} else {
+   $result['error'] = "Could not save question in db";
 }
+Json::emit_as_jsonp($result, true);
