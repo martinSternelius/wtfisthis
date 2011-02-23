@@ -82,7 +82,7 @@ $(document).ready(function() {
 	$("#reply_to_question form").ajaxForm(options);
 	
 	// if you click on the "would you like to reply"-link, the reply form should be focused
-	$("#highlight_reply_form").click(function() {
+	$("#highlight_reply_form").click(function(event) {
 		$("#reply_text").focus();
 	});
 	
