@@ -20,6 +20,7 @@ $(document).ready(function() {
 			$('#question_author_and_date').text('Skriven av '+(question.author||"Anonym")+' den '+ question.post_date);
 		}   
 		// gets the answers and foreach displays them below the question
+		// If there is no answers, keep the default paragraph.
 		if ($(question.answers).length > 0) {
 			$("#answers > p").replaceWith("<ol></ol>");
 			
@@ -63,18 +64,22 @@ $(document).ready(function() {
 	$("#reply_text").NobleCount("#reply_text_count", {max_chars:text_max});
 
 	var options = {
-			beforeSubmit: function(arr) { 
-				$("<div />").attr("id", "throbber").html('<img src="images/ajax-loader.gif" />').appendTo($("#reply_to_question"));
-			},
-			dataType: 'jsonp',
-			type: 'post',
-			success: function (response){
-				$("#throbber").remove();
-			   
-            var answer = WTF.makeanswer(response);
-				answer.prependTo("#answers ol").hide().fadeIn(500);
+		beforeSubmit: function(arr) { 
+			$("<div />").attr("id", "throbber").html('<img src="images/ajax-loader.gif" />').appendTo($("#reply_to_question"));
+		},
+		dataType: 'jsonp',
+		type: 'post',
+		success: function (response){
+			$("#throbber").remove();
+		   
+			// Replace default paragraph if present.
+			if ($("#answers > p").length > 0) {
+				$("#answers > p").replaceWith("<ol></ol>");
 			}
-		};
+			var answer = WTF.makeanswer(response);
+			answer.prependTo("#answers ol").hide().fadeIn(500);
+		}
+	};
 		$("#reply_to_question form").ajaxForm(options);
 		
 	// set the correct action attribute on the reply form
