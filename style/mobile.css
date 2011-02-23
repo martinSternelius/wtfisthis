@@ -219,6 +219,10 @@ h2#answers_header {
 	margin-top:10px;
 }
 
+#answers {
+	margin-top: 20px;
+}
+
 li.answer {
 	list-style-type:none;
 	border: solid 1px #a8bf54;
@@ -228,9 +232,9 @@ li.answer {
 	font-size:14px;
 }
 
-li.answer p.answer_text, p.answer_name {
-	float:left;
-	width:80%;
+li.answer p.answer_text {
+	margin-bottom: 10px;
+	font-size: 16px;
 }
 
 li.answer div.voting {
