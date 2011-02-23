@@ -17,31 +17,14 @@ $(document).ready(function() {
 		$("#question_image").attr("src", question.photo.urls.medium);
 		$("#question_description").html(question.description);
 		if(question.post_date){
-			if(question.author == null) {
-				question.author = "Anonym";
-			}
-			$('#question_author_and_date').text('Skriven av '+question.author+' den '+ question.post_date);
+			$('#question_author_and_date').text('Skriven av '+(question.author||"Anonym")+' den '+ question.post_date);
 		}   
 		// gets the answers and foreach displays them below the question
 		if ($(question.answers).length > 0) {
 			$("#answers > p").replaceWith("<ol></ol>");
 			
 			$(question.answers).each(function() {
-				
-				// builds up the html for every answer
-				var answer ="<li class='answer'>";
-				answer += 		"<p class='answer_text'>" + this.answer_text + "</p>";
-				answer +=			"<div class='voting'>";
-				answer +=				"<p class='upvote'>+</p>";
-				answer +=				"<p class='rating'>0</p>";
-				answer +=				"<p class='downvote'>-</p>";
-				answer +=			"</div>";
-				answer +=			"<p class='answer_name'>Skriven av ";
-            answer += this.name || "Anonym";
-				answer += 		" den " + this.published_time + ".</p>";
-				answer +=		"</li>";
-				$("#answers ol").append(answer);
-				
+				$("#answers ol").append(WTF.makeanswer(this));
 			});
 		}
 	});
@@ -85,26 +68,17 @@ $(document).ready(function() {
 			},
 			dataType: 'jsonp',
 			type: 'post',
-			success: function (answer){
+			success: function (response){
 				$("#throbber").remove();
-				var answer ="<li class='answer'>";
-				answer += 		"<p class='answer_text'>" + answer.answer_text + "</p>";
-				answer +=			"<div class='voting'>";
-				answer +=				"<p class='upvote'>+</p>";
-				answer +=				"<p class='rating'>0</p>";
-				answer +=				"<p class='downvote'>-</p>";
-				answer +=			"</div>";
-				answer +=			"<p class='answer_name'>Skriven av ";
-            answer += answer.name || "Anonym";
-				answer += 		" den " + responseText.published_time + ".</p>";
-				answer +=		"</li>";
-				$(answer).prependTo("#answers ol").hide().fadeIn(500);
+			   
+            var answer = WTF.makeanswer(response);
+				answer.prependTo("#answers ol").hide().fadeIn(500);
 			}
 		};
 		$("#reply_to_question form").ajaxForm(options);
 		
 	// set the correct action attribute on the reply form
-	$("#reply_to_question form").attr("action", "../api/?resource=answers&question_id="+question_id);
+	$("#reply_to_question form").attr("action", "../api/index.php?resource=answers&question_id="+question_id);
 	
 	
 });
