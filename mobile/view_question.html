@@ -10,7 +10,8 @@
 	<script type="text/javascript" src="../js/jquery-1.5.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.validate.js"></script>
 	<script type="text/javascript" src="../js/jquery.NobleCount.js"></script>
-	<script type="text/javascript" src="../js/jquery.form.js"></script>
+   <script type="text/javascript" src="../js/jquery.form.js"></script>
+   <script type="text/javascript" src="../js/wtf.js"></script>
 	<script type="text/javascript" src="../js/view_question.js"></script>
 </head>
 <body>
@@ -51,7 +52,7 @@
 
 			<div id="reply_to_question">
 				<h2>Svara</h2>
-				<form action="../api/index.php?resource=answers" method="post">
+				<form action="http://wtf.lightside.se/api/index.php?resource=questions" method="post">
 					<label for="reply_text">Text <span><span id="reply_text_count"></span> tecken kvar</span></label>
 					<textarea id="reply_text" name="reply_text" rows="8" cols="40" required="required" placeholder="Svara på frågan"></textarea>
 					
@@ -74,6 +75,9 @@
 		<footer>
 			<p>copyright &copy; <a href="mailto:wtf@isthis.net">WTF is this</a> 2011</p>
 		</footer>
-	</div>
+   </div>
+   <div class="templates">
+      <ol><li class="answer"><p class="answer_text"></p><div class="voting"><p class="upvote">+</p><p class="rating">0</p><p class="downvote">-</p></div><p class="answer_name"></p></li></ol>
+    </div>
 </body>
 </html>
