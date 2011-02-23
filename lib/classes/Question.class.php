@@ -161,12 +161,12 @@ class Question extends WTF {
       	$c = Db::escape($count);
       	$o = Db::escape($offset);
 		$questions = Db::get_assoc(
-		"SELECT * FROM `questions`
-		ORDER BY `post_date` DESC
-		LIMIT {$c} OFFSET {$o};"
-	);
+			"SELECT * FROM `questions`
+			ORDER BY `post_date` DESC
+			LIMIT {$c} OFFSET {$o};"
+		);
       
-      return $questions;
+		return $questions;
 	}
 
 }
