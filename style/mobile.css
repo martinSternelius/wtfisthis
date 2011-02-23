@@ -302,3 +302,9 @@ div.templates { display:none; }
 	color: #000;
 	text-decoration: none;
 }
+
+.highlight_reply_form {
+	color: blue;
+	cursor: pointer;
+	text-decoration: underline;
+}

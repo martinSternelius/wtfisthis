@@ -69,6 +69,7 @@ $(document).ready(function() {
 		},
 		dataType: 'json',
 		type: 'post',
+		clearForm: 'true',
 		success: function (response){
 			$("#throbber").remove();
 		   
@@ -82,5 +83,10 @@ $(document).ready(function() {
 	};
 		
 	$("#reply_to_question form").ajaxForm(options);
+	
+	// if you click on the "would you like to reply"-link, the reply form should be focused
+	$("#highlight_reply_form").click(function() {
+		$("#reply_text").focus();
+	});
 	
 });
