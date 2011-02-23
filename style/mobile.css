@@ -263,3 +263,5 @@ li.answer p.answer_name {
 	margin-left: -15px;
 	margin-top: -15px;
 }
+
+div.templates { display:none; }
