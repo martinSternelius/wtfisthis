@@ -237,6 +237,10 @@ li.answer p.answer_text {
 	font-size: 16px;
 }
 
+#question_description {
+	font-size: 16px;
+}
+
 li.answer div.voting {
 	float:right;
 }
