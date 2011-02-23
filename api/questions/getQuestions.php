@@ -1,7 +1,14 @@
 <?php
 
-$resultSet = Db::query('SELECT * FROM questions');
-
+if (isset($_GET['count']) && is_numeric($_GET['count'])){
+	if (isset($_GET['offset']) && is_numeric($_GET['offset'])){
+		$resultSet = Question::getQuestionsByCount($_GET['count'], $_GET['offset']);
+	}else{
+		$resultSet = Question::getQuestionsByCount($_GET['count'], 0);
+	}
+} else {
+	$resultSet = Db::query('SELECT * FROM questions');
+}
 $questions = array(); 
 
 // Create a Question object for every row in the database

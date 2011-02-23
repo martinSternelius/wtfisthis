@@ -265,3 +265,39 @@ li.answer p.answer_name {
 }
 
 div.templates { display:none; }
+
+.question {
+	background: rgba(255,255,255,.5);
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.question_thumbnail {
+	float: left;
+}
+
+.question_title {
+	float: left;
+	padding-left: 20px;
+	max-width: 300px;
+}
+
+.question_date {
+	float: right;
+	padding-right: 30px;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.question_title, .question_date {
+	line-height: 75px;
+}
+
+.question_link {
+	display: block;
+	width: 100%;
+	height: 75px;
+	padding: 10px;
+	color: #000;
+	text-decoration: none;
+}
