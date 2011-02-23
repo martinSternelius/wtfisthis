@@ -7,7 +7,7 @@ if (isset($_GET['count']) && is_numeric($_GET['count'])){
 		$resultSet = Question::getQuestionsByCount($_GET['count'], 0);
 	}
 } else {
-	$resultSet = Db::get_assoc('SELECT * FROM questions');
+	$resultSet = Db::get_assoc('SELECT * FROM questions ORDER BY `post_date` DESC');
 }
 $questions = array(); 
 
