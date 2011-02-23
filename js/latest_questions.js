@@ -10,7 +10,6 @@ $(document).ready(function() {
 			// $("ol#questions").append(WTF.makeQuestion(question));
 		});
 		
-		console.log(popular_list.html());
 		$("ol#questions").html(popular_list.html());
 	});
 	

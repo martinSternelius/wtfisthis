@@ -273,23 +273,22 @@ div.templates { display:none; }
 }
 
 .question_thumbnail {
-	float: left;
+	vertical-align: middle;
 }
 
 .question_title {
-	float: left;
 	padding-left: 20px;
-	max-width: 300px;
+	max-width: 275px;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
 }
 
 .question_date {
-	float: right;
 	padding-right: 30px;
 	font-size: 12px;
 	font-weight: bold;
-}
-
-.question_title, .question_date {
+	float: right;
 	line-height: 75px;
 }
 
