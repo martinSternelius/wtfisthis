@@ -15,6 +15,33 @@ var WTF = (function(){
 	return (window.WTF = WTF);
 }());
 
+
+var questionList = [];
+
+WTF.setquestionlist = function (list) {
+   if(typeof(list.shift) != 'undefined' && typeof(list.length) != 'undefined'){ 
+      questionList = list;   
+   }
+}
+
+WTF.getnextquestion = function () {
+   if(questionList.length < 1){ return false; }
+   return questionList.shift();
+}
+
+WTF.getmorequestions = function (nums){
+   var question;
+   while(nums > 0){
+      nums -= 1;
+      question = WTF.getnextquestion();
+      if(!question){ return false;}
+      WTF.makeQuestion(question).hide().fadeIn(500).appendTo('ol#questions');
+   }
+   return true;
+}
+
+
+
 /**
  * Takes a json representation of an answer and returns a clone of the
  * answer template with the answers values inserted

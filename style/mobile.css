@@ -52,6 +52,7 @@ input, textarea {
 
 h1, footer {
 	text-align: center;
+	word-wrap: break-word;
 }
 
 #main, #right {
@@ -65,10 +66,6 @@ h1, footer {
 
 p {
 	font-size:14px;
-}
-
-/* Avoid that user generated content break our style */
-h1, h2, p, a {
 	word-wrap: break-word;
 }
 
@@ -215,6 +212,11 @@ p#question_author_and_date {
 	color:#7a9fbf;
 }
 
+/* view_select är byte av bild, karta länkar m.m. */
+span#view_select {
+	font-size:14px;	
+}
+
 h2#answers_header {
 	margin-top:10px;
 }
@@ -314,3 +316,15 @@ div.templates { display:none; }
 	cursor: pointer;
 	text-decoration: underline;
 }
+
+a#more_link {
+   display: block;
+   background-color: #A8BF54;
+   color: white;
+   width: 100%;
+   text-align: center;
+   height: 1.2em;
+   text-decoration: none;
+   padding: 0.5em 0;
+}
+
