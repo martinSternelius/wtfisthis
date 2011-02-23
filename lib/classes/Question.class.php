@@ -157,7 +157,7 @@ class Question extends WTF {
       $statement->close();
    }
    
-	public static function getQuestionsByCount($count, $offset=0){
+	public static function getQuestionsByCount($count, $offset){
       	$c = Db::escape($count);
       	$o = Db::escape($offset);
 		$questions = Db::get_assoc(
