@@ -156,5 +156,17 @@ class Question extends WTF {
       $statement->execute();
       $statement->close();
    }
+   
+	public static function getQuestionsByCount($count, $offset=0){
+      	$c = Db::escape($count);
+      	$o = Db::escape($offset);
+		$questions = Db::get_assoc(
+		"SELECT * FROM `questions`
+		ORDER BY `post_date` DESC
+		LIMIT {$c} OFFSET {$o};"
+	);
+      
+      return $questions;
+	}
 
 }
