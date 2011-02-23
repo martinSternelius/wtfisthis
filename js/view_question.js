@@ -12,7 +12,8 @@ $(document).ready(function() {
 	
 	$.getJSON('../api/index.php?callback=?',{"resource":"questions","id":question_id}, function(question) {
 		
-		// displays the answer and pushes it to the html
+		// displays the question and pushes it to the html. 
+		// It doesn't use the return value (it is already inserted!)....
 		WTF.makeQuestionFull(question);
 
 		// gets the answers and foreach displays them below the question
