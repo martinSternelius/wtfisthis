@@ -45,7 +45,8 @@ WTF.makeQuestion = function(question){
 
 /**
  * Take a JSON object and insert its data in the corresponding template html
- * and returns the result.
+ * and returns the result. 
+ * Quick and dirty fix with ugly return!
  */
 WTF.makeQuestionFull = function(question){
 	$("#question_title").text(question.title);
@@ -53,7 +54,8 @@ WTF.makeQuestionFull = function(question){
 	$("#question_description").text(question.description);
 	if(question.post_date){
 		$('#question_author_and_date').text('Skriven av '+(question.author||"Anonym")+' den '+ question.post_date);
-	}   
+	}
+	return $("div#question");
 };
 
 }(window));
