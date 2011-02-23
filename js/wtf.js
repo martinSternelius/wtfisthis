@@ -30,11 +30,12 @@ WTF.makeanswer = function(answer){
 
 /**
  * Take a JSON object and its corresponding template html
- * and make an actual list item off it?
+ * and make an actual list item off it.
  */
 WTF.makeQuestion = function(question){
+   var thumb = ( question.photo && question.photo.urls && question.photo.urls.thumbnail) || "";
 	var template = $('.templates li.question:first').clone();
-	template.find('.question_thumbnail').attr('src',question.photo.urls.thumbnail);
+	template.find('.question_thumbnail').attr('src',thumb);
 	template.find('.question_title').text(question.title);
 	template.find('.question_date').text(question.post_date);
 	template.find('.question_link').attr('href',"view_question.html?id=" + question.id);
@@ -42,5 +43,17 @@ WTF.makeQuestion = function(question){
    return template;
 };
 
+/**
+ * Take a JSON object and insert its data in the corresponding template html
+ * and returns the result.
+ */
+WTF.makeQuestionFull = function(question){
+	$("#question_title").text(question.title);
+	$("#question_image").attr("src", question.photo.urls.medium);
+	$("#question_description").text(question.description);
+	if(question.post_date){
+		$('#question_author_and_date').text('Skriven av '+(question.author||"Anonym")+' den '+ question.post_date);
+	}   
+};
 
 }(window));
