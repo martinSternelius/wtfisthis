@@ -37,13 +37,7 @@ $(document).ready(function() {
 				answer +=				"<p class='downvote'>-</p>";
 				answer +=			"</div>";
 				answer +=			"<p class='answer_name'>Skriven av ";
-				
-					if(this.name) {
-						answer += this.name;
-					} else {
-						answer += "Anonym";
-					}
-				
+            answer += this.name || "Anonym";
 				answer += 		" den " + this.published_time + ".</p>";
 				answer +=		"</li>";
 				$("#answers ol").append(answer);
@@ -91,23 +85,17 @@ $(document).ready(function() {
 			},
 			dataType: 'jsonp',
 			type: 'post',
-			success: function (responseText){
+			success: function (answer){
 				$("#throbber").remove();
 				var answer ="<li class='answer'>";
-				answer += 		"<p class='answer_text'>" + responseText.answer_text + "</p>";
+				answer += 		"<p class='answer_text'>" + answer.answer_text + "</p>";
 				answer +=			"<div class='voting'>";
 				answer +=				"<p class='upvote'>+</p>";
 				answer +=				"<p class='rating'>0</p>";
 				answer +=				"<p class='downvote'>-</p>";
 				answer +=			"</div>";
 				answer +=			"<p class='answer_name'>Skriven av ";
-				
-					if(responseText.name) {
-						answer += responseText.name;
-					} else {
-						answer += "Anonym";
-					}
-				
+            answer += answer.name || "Anonym";
 				answer += 		" den " + responseText.published_time + ".</p>";
 				answer +=		"</li>";
 				$(answer).prependTo("#answers ol").hide().fadeIn(500);
