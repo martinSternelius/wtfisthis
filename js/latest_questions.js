@@ -11,8 +11,9 @@ $(document).ready(function() {
       $('#more_link').click(function(event){
         event.preventDefault(); 
          var top = $('ol#questions li:last');
-         WTF.getmorequestions(5);
+         var hasMore= WTF.getmorequestions(5);
          top.scrollTop(0);
+         if(!hasMore) $('#more_link').hide();
          return false;
          });
 
