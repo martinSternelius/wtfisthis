@@ -6,9 +6,9 @@ $(document).ready(function() {
 	var question_id = /id=(\d+)/.exec(idQuery);
 	var question_id = question_id[1];
 	
-	// add a missing id to the form action attribute
-	var form_action = $("form:first").attr("action");
-	$("form:first").attr("action",form_action + "&question_id=" + question_id);
+	// set the correct action attribute on the reply form
+	var replyFormAction = $("#reply_to_question form").attr("action");
+	$("#reply_to_question form").attr("action", replyFormAction + "&question_id=" + question_id);
 	
 	$.getJSON('../api/index.php?callback=?',{"resource":"questions","id":question_id}, function(question) {
 		
@@ -67,7 +67,7 @@ $(document).ready(function() {
 		beforeSubmit: function(arr) { 
 			$("<div />").attr("id", "throbber").html('<img src="images/ajax-loader.gif" />').appendTo($("#reply_to_question"));
 		},
-		dataType: 'jsonp',
+		dataType: 'json',
 		type: 'post',
 		success: function (response){
 			$("#throbber").remove();
@@ -80,10 +80,7 @@ $(document).ready(function() {
 			answer.prependTo("#answers ol").hide().fadeIn(500);
 		}
 	};
-		$("#reply_to_question form").ajaxForm(options);
 		
-	// set the correct action attribute on the reply form
-	$("#reply_to_question form").attr("action", "../api/index.php?resource=answers&question_id="+question_id);
-	
+	$("#reply_to_question form").ajaxForm(options);
 	
 });
