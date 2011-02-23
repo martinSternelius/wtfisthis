@@ -13,12 +13,8 @@ $(document).ready(function() {
 	$.getJSON('../api/index.php?callback=?',{"resource":"questions","id":question_id}, function(question) {
 		
 		// displays the answer and pushes it to the html
-	 	$("#question_title").html(question.title);
-		$("#question_image").attr("src", question.photo.urls.medium);
-		$("#question_description").html(question.description);
-		if(question.post_date){
-			$('#question_author_and_date').text('Skriven av '+(question.author||"Anonym")+' den '+ question.post_date);
-		}   
+		WTF.makeQuestionFull(question);
+
 		// gets the answers and foreach displays them below the question
 		// If there is no answers, keep the default paragraph.
 		if ($(question.answers).length > 0) {
