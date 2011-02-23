@@ -89,9 +89,10 @@ $(document).ready(function() {
 			beforeSubmit: function(arr) { 
 				$("<div />").attr("id", "throbber").html('<img src="images/ajax-loader.gif" />').appendTo($("#reply_to_question"));
 			},
-			dataType: 'jsonp',
+			dataType: 'json',
 			type: 'post',
 			success: function (responseText){
+				console.log(responseText);
 				$("#throbber").remove();
 				var answer ="<li class='answer'>";
 				answer += 		"<p class='answer_text'>" + responseText.answer_text + "</p>";
@@ -113,10 +114,11 @@ $(document).ready(function() {
 				$(answer).prependTo("#answers ol").hide().fadeIn(500);
 			}
 		};
-		$("#reply_to_question form").ajaxForm(options);
+	$("#reply_to_question form").ajaxForm(options);
 		
 	// set the correct action attribute on the reply form
-	$("#reply_to_question form").attr("action", "../api/?resource=answers&question_id="+question_id);
+	var replyFormAction = $("#reply_to_question form").attr("action");
+	$("#reply_to_question form").attr("action", replyFormAction + "&question_id=" + question_id);
 	
 	
 });
