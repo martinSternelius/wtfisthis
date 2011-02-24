@@ -66,7 +66,7 @@
 				</fieldset>					
 
 				<div class="submit">
-					<button id="createQuestionButton" type="submit" id="upload_button">Spara</button>
+					<button id="createQuestionButton" type="submit">Spara</button>
 				</div>		
 
 			</form>	
