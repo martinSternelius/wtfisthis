@@ -18,12 +18,6 @@
 	<div id="wrapper">
 		<header>
 			<h1>WTF is this</h1>
-			<noscript>
-				<h2>OBS</h2>
-				<p>Wtf Is This kräver javascript för att fungera fullt ut!</p>
-				<p>Iphone: välj settings - safari - enable javascript</p>
-				<p>Android: välj webb - menu - more - settings - enable javascript</p>
-			</noscript>
 			<nav>
 				<ul id="tabnav"> 
 					<li><a href="latest_questions.php">Senaste</a></li> 
@@ -38,8 +32,15 @@
 			<div id="question">	
 				<h1 id="question_title">Frågerubrik</h1>
 				<div id="image_section">
+					<noscript>
+						<h2>OBS</h2>
+						<p>Wtf Is This kräver javascript för att fungera fullt ut!</p>
+						<p>Android: välj webb - menu - more - settings - enable javascript</p>
+						<p>Iphone: välj settings - safari - enable javascript</p>
+						<img id="noscript_image" src="images/default.jpg" />
+					</noscript>
 					<!-- placeholder image -->
-					<img id="question_image" src="images/default.jpg" />
+					<img id="question_image" src="" />
 					<p id="question_description"></p>
 					<p id="question_author_and_date"></p>
 				</div>
