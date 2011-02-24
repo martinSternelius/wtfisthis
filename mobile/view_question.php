@@ -10,8 +10,8 @@
 	<script type="text/javascript" src="../js/jquery-1.5.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.validate.js"></script>
 	<script type="text/javascript" src="../js/jquery.NobleCount.js"></script>
-   <script type="text/javascript" src="../js/jquery.form.js"></script>
-   <script type="text/javascript" src="../js/wtf.js"></script>
+	<script type="text/javascript" src="../js/jquery.form.js"></script>
+	<script type="text/javascript" src="../js/wtf.js"></script>
 	<script type="text/javascript" src="../js/view_question.js"></script>
 </head>
 <body>
@@ -40,7 +40,7 @@
 						<img id="noscript_image" src="images/default.jpg" />
 					</noscript>
 					<!-- placeholder image -->
-					<img id="question_image" src="" />
+					<img id="question_image" src="images/default.jpg" alt="Användarens bild kan inte visas utan javascript" />
 					<p id="question_description"></p>
 					<p id="question_author_and_date"></p>
 				</div>
@@ -70,7 +70,6 @@
 			<h3>Om WTF is this</h3>
 			<p>WTF is this är en nytt sätt att söka och hitta information. Du kan publicera bilder på underliga saker och ställa öppna frågor till alla besökare om vad det är för nåt, få svar från riktiga människor och hjälpa till genom att dela med dig av dina insikter.</p>			
 		</div>
-	
 	
 		<footer>
 			<p>copyright &copy; <a href="mailto:wtf@isthis.net">WTF is this</a> 2011</p>
