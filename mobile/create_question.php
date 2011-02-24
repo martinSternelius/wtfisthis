@@ -11,18 +11,11 @@
 	<script type="text/javascript" src="../js/jquery.NobleCount.js"></script>
 	<script type="text/javascript" src="../js/jquery.form.js"></script>
 	<script type="text/javascript" src="../js/create_question.js"></script>
-
 </head>
 <body>
 	<div id="wrapper">
 		<header>
 			<h1>WTF is this</h1>
-			<noscript>
-				<h2>OBS</h2>
-				<p>Wtf Is This kräver javascript för att fungera fullt ut!</p>
-				<p>Iphone: välj settings - safari - enable javascript</p>
-				<p>Android: välj webb - menu - more - settings - enable javascript</p>
-			</noscript>
 			<nav>
 				<ul id="tabnav"> 
 					<li><a href="latest_questions.php">Senaste</a></li> 
@@ -35,7 +28,14 @@
 	
 		<div id="content">				
 			<form id="createQuestion" action="../api/index.php?resource=questions" method="post" enctype="multipart/form-data">	
-				<h2>Skapa en fråga</h2>						
+				<h2>Skapa en fråga</h2>
+				<noscript>
+					<h2>OBS</h2>
+					<p>Wtf Is This kräver javascript för att fungera fullt ut!</p>
+					<p>Android: välj webb - menu - more - settings - enable javascript</p>
+					<p>Iphone: välj settings - safari - enable javascript</p>
+					<img id="noscript_image" src="images/default.jpg" />
+				</noscript>					
 				<fieldset>
 					<legend>Skapa en fråga</legend>
 					<ul>
