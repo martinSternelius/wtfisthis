@@ -11,9 +11,7 @@
 	<script type="text/javascript" src="../js/jquery.NobleCount.js"></script>
 	<script type="text/javascript" src="../js/jquery.form.js"></script>
 	<script type="text/javascript" src="../js/create_question.js"></script>
-	<?php 
-		echo $noscript;
-	?>
+
 </head>
 <body>
 	<div id="wrapper">
