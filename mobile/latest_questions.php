@@ -17,12 +17,6 @@
 	<div id="wrapper">
 		<header>
 			<h1>WTF is this</h1>
-			<noscript>
-				<h2>OBS</h2>
-				<p>Wtf Is This kräver javascript för att fungera fullt ut!</p>
-				<p>Iphone: välj settings - safari - enable javascript</p>
-				<p>Android: välj webb - menu - more - settings - enable javascript</p>
-			</noscript>
 			<nav>
 				<ul id="tabnav"> 
 					<li class="active"><a href="latest_questions.php">Senaste</a></li> 
@@ -32,8 +26,14 @@
 				</ul> 	
 			</nav>
 		</header>
-	
-		<div id="content">		
+		<div id="content">
+			<noscript>
+				<h2>OBS</h2>
+				<p>Wtf Is This kräver javascript för att fungera fullt ut!</p>
+				<p>Android: välj webb - menu - more - settings - enable javascript</p>
+				<p>Iphone: välj settings - safari - enable javascript</p>
+				<img id="noscript_image" src="images/default.jpg" />
+			</noscript>
 			<ol id="questions">
 				<li></li>
 			</ol>

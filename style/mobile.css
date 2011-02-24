@@ -43,10 +43,10 @@ nav {
 }
 
 noscript {
+	width: 100%;
 	display:block;
-	padding: 3px 0px 3px 5px;
+	padding: 3px 5px 3px 5px;
 	margin: 4px;
-	background: white;
 	border: solid 1px red;	
 }
 
@@ -55,9 +55,13 @@ noscript h2 {
 }
 
 noscript p {
-	margin-bottom: 2px;	
+	margin-bottom: 2px;
+	margin-left: 11px;
 }
 
+noscript #noscript_image {
+	margin-top:5px;	
+}
 #content, #about, footer {
 	padding: 40px;
 }
