@@ -43,11 +43,11 @@ nav {
 }
 
 noscript {
-	width: 100%;
-	display:block;
-	padding: 3px 5px 3px 5px;
-	margin: 4px;
-	border: solid 1px red;	
+	border: 1px solid red;
+    display: block;
+    margin: 0 0 20px;
+    padding: 10px;
+    width: inherit;	
 }
 
 noscript h2 {
@@ -60,7 +60,8 @@ noscript p {
 }
 
 noscript #noscript_image {
-	margin-top:5px;	
+	margin: 10px 0;
+    width: 490px;	
 }
 #content, #about, footer {
 	padding: 40px;
