@@ -39,7 +39,7 @@
 				<h1 id="question_title">Frågerubrik</h1>
 				<div id="image_section">
 					<!-- placeholder image -->
-					<img id="question_image" />
+					<img id="question_image" src="images/default.jpg" />
 					<p id="question_description"></p>
 					<p id="question_author_and_date"></p>
 				</div>
