@@ -42,6 +42,22 @@ nav {
 	overflow: hidden;
 }
 
+noscript {
+	display:block;
+	padding: 3px 0px 3px 5px;
+	margin: 4px;
+	background: white;
+	border: solid 1px red;	
+}
+
+noscript h2 {
+	text-align: center;	
+}
+
+noscript p {
+	margin-bottom: 2px;	
+}
+
 #content, #about, footer {
 	padding: 40px;
 }
