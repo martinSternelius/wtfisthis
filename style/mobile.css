@@ -20,6 +20,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 body {
 	font: 1.3em arial;
 	background: black;
+	height: 100%;
 }
 
 #wrapper {
@@ -254,24 +255,24 @@ li.answer p.answer_name {
 
 /* throbber loading gif */
 #throbber {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
+	position: absolute;
+	width: 600px;
 	left: 0;
+	margin-top: -500px;
+	height: 770px;
 	background: rgba(255,255,255,.4);
 	padding: 0;
-	margin: 0;
+	z-index: 10;
 }
 
 #throbber img {
-	position: fixed;
+	position: absolute;
 	width: 31px;
 	height: 31px;
-	top: 50%;
 	left: 50%;
 	margin-left: -15px;
-	margin-top: -15px;
+	margin-top: 445px;
+	z-index: 11;
 }
 
 div.templates { display:none; }
