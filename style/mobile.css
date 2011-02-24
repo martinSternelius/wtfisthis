@@ -142,7 +142,6 @@ form button {
 	cursor: pointer;
 	text-align: center;
 }	
-form button:hover { color: #000; }
 form input:active, form input:focus {
 	border-color: #f00;
 }
