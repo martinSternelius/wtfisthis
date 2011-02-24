@@ -54,7 +54,7 @@ $(document).ready(function() {
 		success: function (responseText){
 			$("#throbber").remove();
 			var loc = document.location.href;
-			window.location = loc.substring(0, loc.lastIndexOf( '/' ) ) + '/view_question.html?id='+responseText.id;
+			window.location = loc.substring(0, loc.lastIndexOf( '/' ) ) + '/view_question.php?id='+responseText.id;
 		}
 		
 	};

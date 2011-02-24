@@ -65,7 +65,7 @@ WTF.makeQuestion = function(question){
 	template.find('.question_thumbnail').attr('src',thumb);
 	template.find('.question_title').text(question.title);
 	template.find('.question_date').text(question.post_date);
-	template.find('.question_link').attr('href',"view_question.html?id=" + question.id);
+	template.find('.question_link').attr('href',"view_question.php?id=" + question.id);
 	
    return template;
 };

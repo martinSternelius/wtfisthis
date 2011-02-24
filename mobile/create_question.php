@@ -18,10 +18,10 @@
 			<h1>WTF is this</h1>
 			<nav>
 				<ul id="tabnav"> 
-					<li><a href="latest_questions.html">Senaste</a></li> 
+					<li><a href="latest_questions.php">Senaste</a></li> 
 					<li><a href="#">Populäraste</a></li> 
 					<li><a href="#">I din närhet</a></li> 
-					<li class="active"><a href="create_question.html">Skapa en fråga</a></li> 
+					<li class="active"><a href="create_question.php">Skapa en fråga</a></li> 
 				</ul> 	
 			</nav>
 		</header>
