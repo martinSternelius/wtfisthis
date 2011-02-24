@@ -43,6 +43,27 @@ nav {
 	overflow: hidden;
 }
 
+noscript {
+	border: 1px solid red;
+    display: block;
+    margin: 0 0 20px;
+    padding: 10px;
+    width: inherit;	
+}
+
+noscript h2 {
+	text-align: center;	
+}
+
+noscript p {
+	margin-bottom: 2px;
+	margin-left: 11px;
+}
+
+noscript #noscript_image {
+	margin: 10px 0;
+    width: 490px;	
+}
 #content, #about, footer {
 	padding: 40px;
 }
