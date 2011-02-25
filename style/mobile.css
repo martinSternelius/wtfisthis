@@ -312,12 +312,14 @@ div.templates { display:none; }
 	max-width: 275px;
 	display: inline-block;
 	vertical-align: middle;
+	word-wrap: break-word;
+	font-size: 18px;
 	overflow: hidden;
 }
 
 .question_date {
-	padding-right: 30px;
-	font-size: 12px;
+	padding-right: 20px;
+	font-size: 11px;
 	font-weight: bold;
 	float: right;
 	line-height: 75px;
