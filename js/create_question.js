@@ -56,12 +56,21 @@ $(document).ready(function() {
 			var loc = document.location.href;
 			window.location = loc.substring(0, loc.lastIndexOf( '/' ) ) + '/view_question.php?id='+responseText.id;
 		}
+		error: function(msg){
+			$("#throbber").remove();
+			/* Make the button useful again if the upload failed. */
+			$("#createQuestionButton").attr("disabled","").css("cursor","pointer");
+		}
 		
 	};
 	$("#createQuestion").ajaxForm(options);
 	
 	$("#createQuestionButton").click(function() {
-		$("<div />").attr("id", "throbber").html('<img src="images/ajax-loader.gif" />').appendTo($(this));
+		$("#createQuestionButton").attr("disabled","disabled").css("cursor","default");
+		$("<div />")
+			.attr("id", "throbber")
+			.html('<img src="images/ajax-loader.gif" />')
+			.appendTo($(this));
 	});
 		
 });
