@@ -55,7 +55,7 @@ $(document).ready(function() {
 			$("#throbber").remove();
 			var loc = document.location.href;
 			window.location = loc.substring(0, loc.lastIndexOf( '/' ) ) + '/view_question.php?id='+responseText.id;
-		}
+		},
 		error: function(msg){
 			$("#throbber").remove();
 			/* Make the button useful again if the upload failed. */

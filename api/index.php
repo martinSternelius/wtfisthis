@@ -14,7 +14,7 @@
  */
 require_once '../lib/base.php';
 require_once './helpers.php';
-sleep(5);
+
 // First check if the call is for a resource (in the database)
 // at this point we die if the request is for anything but a resource
 if (!isset($_GET['resource'])) die('invalid request');
