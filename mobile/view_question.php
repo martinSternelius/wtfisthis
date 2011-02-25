@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -40,7 +41,7 @@
 						<img id="noscript_image" src="images/default.jpg" />
 					</noscript>
 					<!-- placeholder image -->
-					<img id="question_image" src="images/default.jpg" alt="Användarens bild kan inte visas utan javascript" />
+					<img id="question_image" src="images/blank.gif" alt="Wtf is this" />
 					<p id="question_description"></p>
 					<p id="question_author_and_date"></p>
 				</div>

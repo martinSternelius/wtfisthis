@@ -21,10 +21,12 @@ body {
 	font: 1.3em arial;
 	background: black;
 	height: 100%;
+	margin: 0 auto;
+	  width: 600px;
 }
 
 #wrapper {
-	width: 600px;
+	width: 100%;
 	margin: 0 auto;
 	background-color: #DCE8F2;
 }
@@ -296,6 +298,11 @@ li.answer p.answer_name {
 }
 
 div.templates { display:none; }
+
+#questions {
+	display: block;
+	width: 520px;
+}
 
 .question {
 	background: rgba(255,255,255,.5);
