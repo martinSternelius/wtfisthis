@@ -61,7 +61,11 @@ $(document).ready(function() {
 	$("#createQuestion").ajaxForm(options);
 	
 	$("#createQuestionButton").click(function() {
-		$("<div />").attr("id", "throbber").html('<img src="images/ajax-loader.gif" />').appendTo($(this));
+		$("#createQuestionButton").attr("disabled","disabled").css("cursor","default");
+		$("<div />")
+			.attr("id", "throbber")
+			.html('<img src="images/ajax-loader.gif" />')
+			.appendTo($(this));
 	});
 		
 });
