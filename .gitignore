@@ -11,4 +11,4 @@ nbproject
 # Project Specific Ignores
 lib/config.php
 #Titanium build files
-titanium/wtfisthis/build
+#titanium/wtfisthis/build/
