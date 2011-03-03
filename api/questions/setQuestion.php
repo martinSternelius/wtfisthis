@@ -7,7 +7,7 @@ $val = new Validator($_POST);
 $val->add_field('headerInput',array('required'=>true,'maxlength'=>20));
 $val->add_field('textInput', array('required'=>true));
 $val->add_field('nameInput',array('default'=>'Anonym'));
-$val->require_file('imageUpload');
+//$val->require_file('imageUpload');
 
 /*
  * If form isn't valid just emit the errors and stop processing

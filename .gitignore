@@ -10,3 +10,5 @@ Desktop.ini
 nbproject
 # Project Specific Ignores
 lib/config.php
+#Titanium build files
+titanium/wtfisthis/build
